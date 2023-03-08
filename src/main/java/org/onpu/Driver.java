@@ -31,6 +31,11 @@ public class Driver extends Employee {
         setId(id);
     }
 
+    /**
+     *
+     * @param id 6-digit id
+     * @throws Exception id length is less or greater than 6
+     */
     public void setId(String id) throws Exception {
         Pattern pattern = Pattern.compile("^\\d{6}$");
         Matcher matcher = pattern.matcher(id);
@@ -40,6 +45,11 @@ public class Driver extends Employee {
             throw new Exception("Invalid id");
     }
 
+    /**
+     * Sets time of starting the route
+     * @param startOfRoute 24-time format (e.g. 00:00 - 23:59)
+     * @throws Exception wrong typed time (e.g. 24:00, 7:30)
+     */
     public void setStartOfRoute(String startOfRoute) throws Exception {
         Pattern pattern = Pattern.compile("^((2[0-3])|([0-1]\\d)):[0-5]\\d$");
         Matcher matcher = pattern.matcher(startOfRoute);
@@ -49,6 +59,11 @@ public class Driver extends Employee {
             throw new Exception("Invalid time of start of the route");
     }
 
+    /**
+     * Sets time of ending the route
+     * @param endOfRoute 24-time format (e.g. 00:00 - 23:59)
+     * @throws Exception wrong typed time (e.g. 24:00, 7:30)
+     */
     public void setEndOfRoute(String endOfRoute) throws Exception {
         Pattern pattern = Pattern.compile("^((2[0-3])|([0-1]\\d)):[0-5]\\d$");
         Matcher matcher = pattern.matcher(endOfRoute);

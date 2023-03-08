@@ -23,6 +23,10 @@ public class Transport {
         setId(id);
     }
 
+    /**
+     * @param number requires this type of format - 2 letters 4 digits 2 letters (e.g. AA 1234 AA)
+     * @throws Exception not required this type of format
+     */
     public void setNumber(String number) throws Exception{
         Pattern pattern = Pattern.compile("^([a-zA-Z]{2})\\s(\\d{4})\\s([a-zA-Z]{2})$");
         Matcher matcher = pattern.matcher(number);
@@ -32,6 +36,10 @@ public class Transport {
             throw new Exception("Invalid number");
     }
 
+    /**
+     * @param id 6-digit id
+     * @throws Exception id length is less or greater than 6
+     */
     public void setId(String id) throws Exception {
         Pattern pattern = Pattern.compile("^\\d{6}$");
         Matcher matcher = pattern.matcher(id);

@@ -30,6 +30,10 @@ public class Person {
         return livingAddress;
     }
 
+    /**
+     * @param phoneNumber  10-digit phone number
+     * @throws Exception phone number length is less or greater than 10
+     */
     public void setPhoneNumber(String phoneNumber) throws Exception {
         Pattern pattern = Pattern.compile("^\\d{10}$");
         Matcher matcher = pattern.matcher(phoneNumber);
