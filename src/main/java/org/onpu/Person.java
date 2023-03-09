@@ -3,7 +3,7 @@ package org.onpu;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Person {
+public class Person implements Printable{
     private String name;
     private String surname;
     private String patronymic;
@@ -31,7 +31,7 @@ public class Person {
     }
 
     /**
-     * @param phoneNumber  10-digit phone number
+     * @param phoneNumber 10-digit phone number
      * @throws Exception phone number length is less or greater than 10
      */
     public void setPhoneNumber(String phoneNumber) throws Exception {
@@ -66,5 +66,19 @@ public class Person {
         patronymic = obj.patronymic;
         phoneNumber = obj.phoneNumber;
         livingAddress = obj.livingAddress;
+    }
+
+    @Override
+    public String toString() {
+        return "\nName      : " + name +
+                "\nSurname   : " + surname +
+                "\nPatronymic: " + patronymic +
+                "\nAddress   : " + livingAddress +
+                "\nPhone number: " + phoneNumber;
+    }
+
+    @Override
+    public void printInfo() {
+        System.out.println(this);
     }
 }

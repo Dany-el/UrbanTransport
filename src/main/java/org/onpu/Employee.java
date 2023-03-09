@@ -17,4 +17,14 @@ public class Employee extends Person {
         super(obj);
         nameOfOrganization = obj.nameOfOrganization;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nOrganization: " + nameOfOrganization;
+    }
+
+    @Override
+    public void printInfo() {
+        System.out.println(this);
+    }
 }
