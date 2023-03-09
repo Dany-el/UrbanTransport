@@ -1,7 +1,6 @@
 package org.onpu;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,7 +13,7 @@ public class Driver extends Employee {
     private String id;
 
     Driver() {
-        startOfCareer = LocalDate.of(2000, 1, 1);
+        startOfCareer = null;
         startOfRoute = "00:00";
         endOfRoute = "12:00";
         routeName = "Undefined";
@@ -31,8 +30,16 @@ public class Driver extends Employee {
         setId(id);
     }
 
+    public Driver(Driver driver) {
+        super(driver);
+        startOfCareer = driver.startOfCareer;
+        routeName = driver.routeName;
+        startOfRoute = driver.startOfRoute;
+        endOfRoute = driver.endOfRoute;
+        id = driver.id;
+    }
+
     /**
-     *
      * @param id 6-digit id
      * @throws Exception id length is less or greater than 6
      */
@@ -47,6 +54,7 @@ public class Driver extends Employee {
 
     /**
      * Sets time of starting the route
+     *
      * @param startOfRoute 24-time format (e.g. 00:00 - 23:59)
      * @throws Exception wrong typed time (e.g. 24:00, 7:30)
      */
@@ -61,6 +69,7 @@ public class Driver extends Employee {
 
     /**
      * Sets time of ending the route
+     *
      * @param endOfRoute 24-time format (e.g. 00:00 - 23:59)
      * @throws Exception wrong typed time (e.g. 24:00, 7:30)
      */
@@ -73,10 +82,36 @@ public class Driver extends Employee {
             throw new Exception("Invalid time of end of the route");
     }
 
+    public void setRouteName(String routeName) {
+        this.routeName = routeName;
+    }
+
+    public void setStartOfCareer(LocalDate startOfCareer) {
+        this.startOfCareer = startOfCareer;
+    }
+
     /**
      * @return The length of service in years
      */
     public long getLengthOfService() {
         return ChronoUnit.YEARS.between(startOfCareer, LocalDate.now());
+    }
+
+    public String getRouteName() {
+        return routeName;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\nId: " + id +
+                "\nService length: " + getLengthOfService() +
+                "\nRoute \"" + routeName + "\"" +
+                "\nFrom " + startOfRoute + " to " + endOfRoute;
+    }
+
+    @Override
+    public void printInfo() {
+        System.out.println(this);
     }
 }
