@@ -1,32 +1,32 @@
 package org.onpu;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Driver extends Employee {
+public class Driver extends Employee implements Comparable<Driver> {
     private LocalDate startOfCareer;
-    private String startOfRoute;
-    private String endOfRoute;
+    private LocalTime startOfRoute;
+    private LocalTime endOfRoute;
     private String routeName;
     private String id;
 
     Driver() {
         startOfCareer = null;
-        startOfRoute = "00:00";
-        endOfRoute = "12:00";
+        startOfRoute = null;
+        endOfRoute = null;
         routeName = "Undefined";
         id = "Undefined";
     }
 
-    Driver(Employee employee,
-           LocalDate startOfCareer, String startOfRoute, String endOfRoute, String routeName, String id) throws Exception {
+    Driver(Employee employee, LocalDate startOfCareer, LocalTime startOfRoute, LocalTime endOfRoute, String routeName, String id) throws Exception {
         super(employee);
         this.startOfCareer = startOfCareer;
         this.routeName = routeName;
-        setStartOfRoute(startOfRoute);
-        setEndOfRoute(endOfRoute);
+        this.startOfRoute = startOfRoute;
+        this.endOfRoute = endOfRoute;
         setId(id);
     }
 
@@ -46,40 +46,40 @@ public class Driver extends Employee {
     public void setId(String id) throws Exception {
         Pattern pattern = Pattern.compile("^\\d{6}$");
         Matcher matcher = pattern.matcher(id);
-        if (matcher.find())
-            this.id = id;
-        else
-            throw new Exception("Invalid id");
+        if (matcher.find()) this.id = id;
+        else throw new Exception("Invalid id");
     }
 
     /**
-     * Sets time of starting the route
+     * Sets the time of starting the route
      *
-     * @param startOfRoute 24-time format (e.g. 00:00 - 23:59)
-     * @throws Exception wrong typed time (e.g. 24:00, 7:30)
+     * @param startOfRoute 24-time format
      */
-    public void setStartOfRoute(String startOfRoute) throws Exception {
-        Pattern pattern = Pattern.compile("^((2[0-3])|([0-1]\\d)):[0-5]\\d$");
-        Matcher matcher = pattern.matcher(startOfRoute);
-        if (matcher.find())
-            this.startOfRoute = startOfRoute;
-        else
-            throw new Exception("Invalid time of start of the route");
+    public void setStartOfRoute(LocalTime startOfRoute) {
+        this.startOfRoute = startOfRoute;
     }
 
     /**
-     * Sets time of ending the route
-     *
-     * @param endOfRoute 24-time format (e.g. 00:00 - 23:59)
-     * @throws Exception wrong typed time (e.g. 24:00, 7:30)
+     * Sets the time of starting the route
      */
-    public void setEndOfRoute(String endOfRoute) throws Exception {
-        Pattern pattern = Pattern.compile("^((2[0-3])|([0-1]\\d)):[0-5]\\d$");
-        Matcher matcher = pattern.matcher(endOfRoute);
-        if (matcher.find())
-            this.endOfRoute = endOfRoute;
-        else
-            throw new Exception("Invalid time of end of the route");
+    public void setStartOfRoute(int hour, int minute) {
+        startOfRoute = LocalTime.of(hour, minute);
+    }
+
+    /**
+     * Sets the time of ending the route
+     *
+     * @param endOfRoute 24-time format
+     */
+    public void setEndOfRoute(LocalTime endOfRoute) {
+        this.endOfRoute = endOfRoute;
+    }
+
+    /**
+     * Sets the time of ending the route
+     */
+    public void setEndOfRoute(int hour, int minute) {
+        endOfRoute = LocalTime.of(hour, minute);
     }
 
     public void setRouteName(String routeName) {
@@ -88,6 +88,14 @@ public class Driver extends Employee {
 
     public void setStartOfCareer(LocalDate startOfCareer) {
         this.startOfCareer = startOfCareer;
+    }
+
+    public LocalTime getStartOfRoute() {
+        return startOfRoute;
+    }
+
+    public LocalTime getEndOfRoute() {
+        return endOfRoute;
     }
 
     /**
@@ -103,15 +111,18 @@ public class Driver extends Employee {
 
     @Override
     public String toString() {
-        return super.toString() +
-                "\nId: " + id +
-                "\nService length: " + getLengthOfService() +
-                "\nRoute \"" + routeName + "\"" +
-                "\nFrom " + startOfRoute + " to " + endOfRoute;
+        return super.toString() + "\nId: " + id + "\nService length: " + getLengthOfService() + "\nRoute \"" + routeName + "\"" + "\nFrom " + startOfRoute + " to " + endOfRoute;
     }
 
     @Override
     public void printInfo() {
         System.out.println(this);
+    }
+
+    @Override
+    public int compareTo(Driver o) {
+        if (getLengthOfService() > o.getLengthOfService()) return 1;
+        else if (getLengthOfService() == o.getLengthOfService()) return 0;
+        return -1;
     }
 }

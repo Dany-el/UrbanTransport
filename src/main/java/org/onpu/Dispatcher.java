@@ -1,5 +1,7 @@
 package org.onpu;
 
+import java.time.LocalTime;
+
 public class Dispatcher extends Employee {
 
     Dispatcher() {
@@ -34,11 +36,11 @@ public class Dispatcher extends Employee {
     /**
      * Creates new object of type 'Driver' and changes its route name
      *
-     * @param driver NotNull driver
+     * @param driver    NotNull driver
      * @param routeName route name
      * @return new object of type 'Driver' with changed route name
      */
-    public Driver changeRouteName(Driver driver, String routeName){
+    public Driver changeRouteName(Driver driver, String routeName) {
         if (driver != null) {
             Driver copy = new Driver(driver);
             copy.setRouteName(routeName);
@@ -47,7 +49,7 @@ public class Dispatcher extends Employee {
         return null;
     }
 
-    public Driver changeStartOfRoute(Driver driver, String startOfRoute) throws Exception{
+    public Driver changeStartOfRoute(Driver driver, LocalTime startOfRoute) {
         if (driver == null) {
             return null;
         }
@@ -56,7 +58,7 @@ public class Dispatcher extends Employee {
         return copy;
     }
 
-    public Driver changeEndOfRoute(Driver driver, String endOfRoute) throws Exception{
+    public Driver changeEndOfRoute(Driver driver, LocalTime endOfRoute) {
         if (driver == null) {
             return null;
         }
@@ -65,7 +67,7 @@ public class Dispatcher extends Employee {
         return copy;
     }
 
-    public Driver changeTimeRangeOfRoute(Driver driver, String startOfRoute, String endOfRoute) throws Exception {
+    public Driver changeTimeRangeOfRoute(Driver driver, LocalTime startOfRoute, LocalTime endOfRoute) {
         if (driver == null) {
             return null;
         }
