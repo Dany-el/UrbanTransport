@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="Added comments">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Printable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" afterDir="false" />
+    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="Change 'String' to 'LocalTime'">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Dispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Transport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Transport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,18 +38,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last.edited.regexp&quot;: &quot;20:00&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last.edited.regexp": "22:33",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui"
   }
-}</component>
+}]]></component>
+  <component name="RunManager" selected="Application.UrbanCompany">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.onpu.Main" />
+      <module name="UrbanTransport" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.onpu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UrbanCompany" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.onpu.UrbanCompany" />
+      <module name="UrbanTransport" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.onpu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.UrbanCompany" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -101,7 +128,70 @@
       <option name="project" value="LOCAL" />
       <updated>1678306171029</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added methods to work with fields of Driver and Transport">
+      <created>1678384315314</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678384315314</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added constructor, some accessors, override method">
+      <created>1678384390090</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678384390090</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added override methods">
+      <created>1678384421409</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678384421409</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Create interface to show info about object">
+      <created>1678384443139</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678384443139</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Maven changes">
+      <created>1678384510657</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678384510657</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Class to work with entire project">
+      <created>1678384530524</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678384530524</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added default methods and override methods">
+      <created>1678384582378</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1678384582378</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Testing(not for long)">
+      <created>1678384602087</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1678384602087</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Change 'String' to 'LocalTime'">
+      <created>1679442987951</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1679442987951</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -109,6 +199,15 @@
     <MESSAGE value="Added constructors, getters" />
     <MESSAGE value="Testing exceptions" />
     <MESSAGE value="Added comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added comments" />
+    <MESSAGE value="Added methods to work with fields of Driver and Transport" />
+    <MESSAGE value="Added constructor, some accessors, override method" />
+    <MESSAGE value="Added override methods" />
+    <MESSAGE value="Create interface to show info about object" />
+    <MESSAGE value="Maven changes" />
+    <MESSAGE value="Class to work with entire project" />
+    <MESSAGE value="Added default methods and override methods" />
+    <MESSAGE value="Testing(not for long)" />
+    <MESSAGE value="Change 'String' to 'LocalTime'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change 'String' to 'LocalTime'" />
   </component>
 </project>
