@@ -30,7 +30,7 @@ public class Driver extends Employee implements Comparable<Driver> {
         setId(id);
     }
 
-    public Driver(Driver driver) {
+    Driver(Driver driver) {
         super(driver);
         startOfCareer = driver.startOfCareer;
         routeName = driver.routeName;
