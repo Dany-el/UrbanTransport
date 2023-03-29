@@ -41,12 +41,12 @@ public class Dispatcher extends Employee {
      * @return new object of type 'Driver' with changed route name
      */
     public Driver changeRouteName(Driver driver, String routeName) {
-        if (driver != null) {
-            Driver copy = new Driver(driver);
-            copy.setRouteName(routeName);
-            return copy;
+        if (driver == null) {
+            return null;    
         }
-        return null;
+        Driver copy = new Driver(driver);
+        copy.setRouteName(routeName);
+        return copy;
     }
 
     public Driver changeStartOfRoute(Driver driver, LocalTime startOfRoute) {
