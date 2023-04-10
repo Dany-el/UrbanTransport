@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="a little changes">
+    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="new component">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +23,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -202,7 +202,28 @@
       <option name="project" value="LOCAL" />
       <updated>1679445052834</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="added setter and changed argument type at copy construct">
+      <created>1681158626081</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1681158626081</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added construct, setters and remove/add to the list methods">
+      <created>1681158734088</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1681158734088</updated>
+    </task>
+    <task id="LOCAL-00019" summary="new component">
+      <created>1681158751346</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1681158751346</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -221,7 +242,10 @@
     <MESSAGE value="Change 'String' to 'LocalTime'" />
     <MESSAGE value="Added 5 new methods to work with 'Lists'" />
     <MESSAGE value="a little changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="a little changes" />
+    <MESSAGE value="added setter and changed argument type at copy construct" />
+    <MESSAGE value="Added construct, setters and remove/add to the list methods" />
+    <MESSAGE value="new component" />
+    <option name="LAST_COMMIT_MESSAGE" value="new component" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
