@@ -86,10 +86,16 @@ public class UrbanCompany {
     }
 
     public Driver getDriverWithGreatLengthOfService() {
+        // Sorting by comparing the length of service of driver
         groupOfDrivers.sort(Driver::compareTo);
         return groupOfDrivers.get(groupOfDrivers.size() - 1);
     }
 
+    /**
+     * Returns list of drivers with unique route
+     * @param r - route
+     * @return list of drivers with unique route
+     */
     public List<Driver> getDriversOfSpecificRoute(String r) {
         List<Driver> specificRoute = new ArrayList<>();
 
@@ -101,7 +107,12 @@ public class UrbanCompany {
         return specificRoute;
     }
 
-    public int getTransportsAtTime(LocalTime t) {
+    /**
+     * Returns count of transports where the parameter is located at range of transport's begin and end time
+     * @param t - time, is used to count transports
+     * @return count of transports
+     */
+    public int getCountOfTransportsAtTime(LocalTime t) {
         int counter = 0;
         for (Transport transport :
                 depot) {
@@ -157,7 +168,7 @@ public class UrbanCompany {
             System.out.println("------------------");
         }
 
-        System.out.println(urbanCompany.getTransportsAtTime(LocalTime.of(14, 10)));
+        System.out.println(urbanCompany.getCountOfTransportsAtTime(LocalTime.of(14, 10)));
 
         // Unemployment
         urbanCompany.fireDriver(driver1);
