@@ -5,16 +5,15 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class UrbanCompany {
     private List<Transport> depot = new ArrayList<>();
     private List<Driver> groupOfDrivers = new ArrayList<>();
     private Dispatcher dispatcher;
+    private String nameOfCompany;
 
-    UrbanCompany() {
-
+    UrbanCompany(String c) {
+        nameOfCompany = c;
     }
 
     UrbanCompany(List<Transport> depot, List<Driver> groupOfDrivers, Dispatcher dispatcher) {
@@ -35,12 +34,31 @@ public class UrbanCompany {
         return depot;
     }
 
+    public void setDispatcher(Dispatcher dispatcher) {
+        this.dispatcher = dispatcher;
+        this.dispatcher.setNameOfOrganization(nameOfCompany);
+    }
+
+    public String getNameOfCompany() {
+        return nameOfCompany;
+    }
+
     public void addTransportToDepot(Transport t) {
         depot.add(t);
     }
 
+    public void removeTransportFromDepot(Transport t) {
+        depot.remove(t);
+    }
+
     public void employDriver(Driver d) {
         groupOfDrivers.add(d);
+        d.setNameOfOrganization(nameOfCompany);
+    }
+
+    public void fireDriver(Driver d) {
+        groupOfDrivers.remove(d);
+        d.setNameOfOrganization("Unemployed");
     }
 
     public double getAverageDriverWorkingTime() {
@@ -95,6 +113,7 @@ public class UrbanCompany {
         return counter;
     }
 
+
     // Temporary -------------------------------------------------------------------------------------------
     private void printDriverInfo(Driver d) {
         System.out.println("Full name: " + d.getSurname() + " " + d.getName() + " " + d.getPatronymic());
@@ -102,12 +121,12 @@ public class UrbanCompany {
     }
 
     public static void main(String[] args) throws Exception {
-        UrbanCompany urbanCompany = new UrbanCompany();
+        UrbanCompany urbanCompany = new UrbanCompany("TransportCompany");
 
-        Person person = new Person("Daniel", "Yablonskyi", "Olexandrovich",
-                "0689782508", "Manezna st. #20");
+        Person person = new Person("Lan", "Konta", "Po",
+                "8283791236", "Somewhere #1");
 
-        Employee employee = new Employee(person, "OdesTrans");
+        Employee employee = new Employee(person);
 
         Driver driver1 = new Driver(employee, LocalDate.of(2009, 10, 18),
                 LocalTime.of(7, 0), LocalTime.of(17, 30), "North-center", "543562");
@@ -116,6 +135,10 @@ public class UrbanCompany {
 
         Transport transport1 = new Transport("Bus", "BH 7877 MV", "837463", driver1);
         Transport transport2 = new Transport("Bus", "BH 2757 MV", "287363", driver2);
+
+        Dispatcher dispatcher = new Dispatcher(employee);
+
+        urbanCompany.setDispatcher(dispatcher);
 
         urbanCompany.employDriver(driver1);
         urbanCompany.employDriver(driver2);
@@ -136,5 +159,10 @@ public class UrbanCompany {
 
         System.out.println(urbanCompany.getTransportsAtTime(LocalTime.of(14, 10)));
 
+        // Unemployment
+        urbanCompany.fireDriver(driver1);
+        System.out.println(driver1);
+
+        System.out.println(dispatcher);
     }
 }
