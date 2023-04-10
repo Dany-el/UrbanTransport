@@ -5,7 +5,7 @@ public class Employee extends Person {
 
     Employee() {
         super();
-        nameOfOrganization = "Undefined";
+        nameOfOrganization = "Unemployed";
     }
 
     Employee(Person person, String nameOfOrganization) throws Exception {
@@ -13,9 +13,12 @@ public class Employee extends Person {
         this.nameOfOrganization = nameOfOrganization;
     }
 
-    Employee(Employee obj) {
+    Employee(Person obj) {
         super(obj);
-        nameOfOrganization = obj.nameOfOrganization;
+    }
+
+    public void setNameOfOrganization(String nameOfOrganization) {
+        this.nameOfOrganization = nameOfOrganization;
     }
 
     @Override
