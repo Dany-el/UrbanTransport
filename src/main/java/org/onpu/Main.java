@@ -6,8 +6,8 @@ import java.time.LocalTime;
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        Person person = new Person("Daniel", "Yablonskyi", "Olexandrovich",
-                "0689782508", "Manezna st. #20");
+        Person person = new Person("Danieru", "Oles", "Loes",
+                "3290138213", "somewhere st.");
 //        System.out.println(person);
 
         Employee employee = new Employee(person, "OdesTrans");
