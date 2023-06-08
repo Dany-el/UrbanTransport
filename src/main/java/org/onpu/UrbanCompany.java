@@ -6,6 +6,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO Change ArrayList to Set
+// TODO Add file (byte-files) saving support
+
 public class UrbanCompany {
     private List<Transport> depot = new ArrayList<>();
     private List<Driver> groupOfDrivers = new ArrayList<>();
@@ -48,7 +51,11 @@ public class UrbanCompany {
     }
 
     public void removeTransportFromDepot(Transport t) {
-        depot.remove(t);
+        if (t != null || groupOfDrivers.contains(t)) {
+            depot.remove(t);
+        } else {
+            throw new NullPointerException("Object is not found or null");
+        }
     }
 
     public void employDriver(Driver d) {
@@ -56,9 +63,13 @@ public class UrbanCompany {
         d.setNameOfOrganization(nameOfCompany);
     }
 
-    public void fireDriver(Driver d) {
-        groupOfDrivers.remove(d);
-        d.setNameOfOrganization("Unemployed");
+    public void fireDriver(Driver d) throws Exception {
+        if (d != null || groupOfDrivers.contains(d)) {
+            groupOfDrivers.remove(d);
+            d.setNameOfOrganization("Unemployed");
+        } else {
+            throw new NullPointerException("Object is not found or null");
+        }
     }
 
     public double getAverageDriverWorkingTime() {
@@ -93,6 +104,7 @@ public class UrbanCompany {
 
     /**
      * Returns list of drivers with unique route
+     *
      * @param r - route
      * @return list of drivers with unique route
      */
@@ -109,6 +121,7 @@ public class UrbanCompany {
 
     /**
      * Returns count of transports where the parameter is located at range of transport's begin and end time
+     *
      * @param t - time, is used to count transports
      * @return count of transports
      */
