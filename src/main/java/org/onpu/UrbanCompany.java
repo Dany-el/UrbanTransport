@@ -5,9 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-// TODO Change ArrayList to Set
 // TODO Add file (byte-files) saving support
 
 public class UrbanCompany {
