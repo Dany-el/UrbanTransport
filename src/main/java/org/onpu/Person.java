@@ -1,9 +1,10 @@
 package org.onpu;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Person implements Printable{
+public class Person implements Printable {
     private String name;
     private String surname;
     private String patronymic;
@@ -69,16 +70,40 @@ public class Person implements Printable{
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        if (!Objects.equals(name, person.name)) return false;
+        if (!Objects.equals(surname, person.surname)) return false;
+        if (!Objects.equals(patronymic, person.patronymic)) return false;
+        if (!Objects.equals(phoneNumber, person.phoneNumber)) return false;
+        return Objects.equals(livingAddress, person.livingAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
+        result = 31 * result + (patronymic != null ? patronymic.hashCode() : 0);
+        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
+        result = 31 * result + (livingAddress != null ? livingAddress.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public void printInfo() {
+        System.out.println(this);
+    }
+
+    @Override
     public String toString() {
         return "\nName      : " + name +
                 "\nSurname   : " + surname +
                 "\nPatronymic: " + patronymic +
                 "\nAddress   : " + livingAddress +
                 "\nPhone number: " + phoneNumber;
-    }
-
-    @Override
-    public void printInfo() {
-        System.out.println(this);
     }
 }
