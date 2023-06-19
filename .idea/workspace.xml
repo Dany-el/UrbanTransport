@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="Added comments to the methods">
+    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="added equals,hashCode and compareTo methods, moved a bit upper">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Dispatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +23,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
@@ -34,19 +40,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last.edited.regexp&quot;: &quot;22:33&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Lombok&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "features",
+    "last.edited.regexp": "22:33",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "cn.yiiguxing.plugin.translate"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.UrbanCompany">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.onpu.Main" />
@@ -237,8 +243,88 @@
       <option name="project" value="LOCAL" />
       <updated>1681159700040</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="added todo">
+      <created>1686247420856</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1686247420856</updated>
+    </task>
+    <task id="LOCAL-00023" summary="sth changed">
+      <created>1686247465454</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1686247465454</updated>
+    </task>
+    <task id="LOCAL-00024" summary="added equals and hashCode methods, moved a bit upper">
+      <created>1687194398065</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1687194398065</updated>
+    </task>
+    <task id="LOCAL-00025" summary="added equals,hashCode and compareTo methods, moved a bit upper">
+      <created>1687194429406</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1687194429406</updated>
+    </task>
+    <task id="LOCAL-00026" summary="added equals and hashCode methods, moved a bit upper">
+      <created>1687194488871</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1687194488871</updated>
+    </task>
+    <task id="LOCAL-00027" summary="added equals,hashCode and compareTo methods, moved a bit upper">
+      <created>1687194601673</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1687194601673</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/features" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/features" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
@@ -260,7 +346,11 @@
     <MESSAGE value="Added construct, setters and remove/add to the list methods" />
     <MESSAGE value="new component" />
     <MESSAGE value="Added comments to the methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added comments to the methods" />
+    <MESSAGE value="added todo" />
+    <MESSAGE value="sth changed" />
+    <MESSAGE value="added equals and hashCode methods, moved a bit upper" />
+    <MESSAGE value="added equals,hashCode and compareTo methods, moved a bit upper" />
+    <option name="LAST_COMMIT_MESSAGE" value="added equals,hashCode and compareTo methods, moved a bit upper" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
