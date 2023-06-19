@@ -4,11 +4,7 @@ import java.time.LocalTime;
 
 public class Dispatcher extends Employee {
 
-    Dispatcher() {
-        super();
-    }
-
-    Dispatcher(Employee employee) throws Exception {
+    Dispatcher(Employee employee) {
         super(employee);
     }
 
@@ -22,7 +18,7 @@ public class Dispatcher extends Employee {
      *
      * @param transport transport which has driver
      * @param routeName route name
-     * @return new object with copied data from parameter 'transport' of type Transport. 'null' if 'transport' is null
+     * @return object with changed route name. 'null' if 'transport' is null
      */
     public Transport changeRouteName(Transport transport, String routeName) {
         if (transport.getDriver() != null) {
@@ -34,47 +30,77 @@ public class Dispatcher extends Employee {
     }
 
     /**
-     * Creates new object of type 'Driver' and changes its route name
+     * Returns an object with changed name of the route
      *
-     * @param driver    NotNull driver
-     * @param routeName route name
-     * @return new object of type 'Driver' with changed route name
+     * @param driver    - driver which will have changed name of the route
+     * @param routeName - new route name
+     * @return an object with changed name of the route
      */
     public Driver changeRouteName(Driver driver, String routeName) {
         if (driver == null) {
-            return null;    
+            return null;
         }
         Driver copy = new Driver(driver);
         copy.setRouteName(routeName);
         return copy;
     }
 
-    public Driver changeStartOfRoute(Driver driver, LocalTime startOfRoute) {
+    /**
+     * Returns an object with changed start time of the route
+     *
+     * @param driver       - driver which will have new start time of the route
+     * @param startOfRoute - new time of starting of the route
+     * @return an object with changed start time of the route
+     * @throws Exception if start time is greater than start time
+     */
+    public Driver changeStartOfRoute(Driver driver, LocalTime startOfRoute) throws Exception {
         if (driver == null) {
             return null;
         }
+        if (startOfRoute.isAfter(driver.getEndOfRoute()))
+            throw new Exception("Start time should be lower than end time");
         Driver copy = new Driver(driver);
         copy.setStartOfRoute(startOfRoute);
         return copy;
     }
 
-    public Driver changeEndOfRoute(Driver driver, LocalTime endOfRoute) {
+    /**
+     * Returns an object with changed end time of the route
+     *
+     * @param driver     - driver which will have new end time of the route
+     * @param endOfRoute - new end time of the route
+     * @return an object with changed end time of the route
+     * @throws Exception if end time is lower than start time
+     */
+    public Driver changeEndOfRoute(Driver driver, LocalTime endOfRoute) throws Exception {
         if (driver == null) {
             return null;
         }
+        if (endOfRoute.isBefore(driver.getStartOfRoute()))
+            throw new Exception("End time should be greater than start time");
         Driver copy = new Driver(driver);
         copy.setEndOfRoute(endOfRoute);
         return copy;
     }
 
-    public Driver changeTimeRangeOfRoute(Driver driver, LocalTime startOfRoute, LocalTime endOfRoute) {
+    /**
+     * Returns an object with changed time range of the route
+     *
+     * @param driver       - driver which will have new range of the time
+     * @param startOfRoute - new start time of the route
+     * @param endOfRoute   - new end time of the route
+     * @return an object with changed time range of the route
+     * @throws Exception if start time is greater than end time
+     */
+    public Driver changeTimeRangeOfRoute(Driver driver, LocalTime startOfRoute, LocalTime endOfRoute) throws Exception {
         if (driver == null) {
             return null;
         }
+        if (startOfRoute.isAfter(endOfRoute))
+            throw new Exception("Start time should be lower than end time");
         Driver copy = new Driver(driver);
         copy.setStartOfRoute(startOfRoute);
         copy.setEndOfRoute(endOfRoute);
         return copy;
     }
-
 }
