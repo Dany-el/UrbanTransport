@@ -18,7 +18,7 @@ public class Dispatcher extends Employee {
      *
      * @param transport transport which has driver
      * @param routeName route name
-     * @return object with changed route name. 'null' if 'transport' is null
+     * @return object with changed route name. null if object is null
      */
     public Transport changeRouteName(Transport transport, String routeName) {
         if (transport.getDriver() != null) {
@@ -32,8 +32,8 @@ public class Dispatcher extends Employee {
     /**
      * Returns an object with changed name of the route
      *
-     * @param driver    - driver which will have changed name of the route
-     * @param routeName - new route name
+     * @param driver    driver which will have changed name of the route
+     * @param routeName new route name
      * @return an object with changed name of the route
      */
     public Driver changeRouteName(Driver driver, String routeName) {
@@ -48,8 +48,8 @@ public class Dispatcher extends Employee {
     /**
      * Returns an object with changed start time of the route
      *
-     * @param driver       - driver which will have new start time of the route
-     * @param startOfRoute - new time of starting of the route
+     * @param driver       driver which will have new start time of the route
+     * @param startOfRoute new time of starting of the route
      * @return an object with changed start time of the route
      * @throws Exception if start time is greater than start time
      */
@@ -67,8 +67,8 @@ public class Dispatcher extends Employee {
     /**
      * Returns an object with changed end time of the route
      *
-     * @param driver     - driver which will have new end time of the route
-     * @param endOfRoute - new end time of the route
+     * @param driver     driver which will have new end time of the route
+     * @param endOfRoute new end time of the route
      * @return an object with changed end time of the route
      * @throws Exception if end time is lower than start time
      */
@@ -86,9 +86,9 @@ public class Dispatcher extends Employee {
     /**
      * Returns an object with changed time range of the route
      *
-     * @param driver       - driver which will have new range of the time
-     * @param startOfRoute - new start time of the route
-     * @param endOfRoute   - new end time of the route
+     * @param driver       driver which will have new range of the time
+     * @param startOfRoute new start time of the route
+     * @param endOfRoute   new end time of the route
      * @return an object with changed time range of the route
      * @throws Exception if start time is greater than end time
      */

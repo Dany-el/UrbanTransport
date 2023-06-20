@@ -1,12 +1,13 @@
 package org.onpu;
 
+import java.io.*;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-// TODO Add file (byte-files) saving support
+// TODO Add possibility to fire driver and remove transport by id
 
 public class UrbanCompany {
     private Set<Transport> depot = new TreeSet<>();
@@ -16,6 +17,9 @@ public class UrbanCompany {
 
     UrbanCompany(String c) {
         nameOfCompany = c;
+        readDepot();
+        readGroupOfDrivers();
+        readDispatcher();
     }
 
     UrbanCompany(Set<Transport> depot, Set<Driver> groupOfDrivers, Dispatcher dispatcher) {
@@ -36,9 +40,15 @@ public class UrbanCompany {
         return new ArrayList<>(depot);
     }
 
-    public void setDispatcher(Dispatcher dispatcher) {
+    /**
+     * Works as setter
+     *
+     * @param dispatcher  object to be set as field dispatcher
+     */
+    public void employDispatcher(Dispatcher dispatcher) {
         this.dispatcher = dispatcher;
         this.dispatcher.setNameOfOrganization(nameOfCompany);
+        saveDispatcher();
     }
 
     public String getNameOfCompany() {
@@ -46,18 +56,19 @@ public class UrbanCompany {
     }
 
     /**
-     * Add transport to depot
+     * Adds transport to depot
      *
-     * @param t - transport to add to depot
+     * @param t  transport to add to depot
      */
     public void addTransportToDepot(Transport t) {
         depot.add(t);
+        saveDepot();
     }
 
     /**
      * Removes transport from depot
      *
-     * @param t - transport to remove from depot
+     * @param t  transport to remove from depot
      */
     public void removeTransportFromDepot(Transport t) {
         try {
@@ -65,22 +76,24 @@ public class UrbanCompany {
         } catch (Exception e) {
             System.out.println("Depot does not have this transport");
         }
+        saveDepot();
     }
 
     /**
-     * Adds object to the set
+     * Adds driver to the set
      *
-     * @param d - driver to employ
+     * @param d driver to employ
      */
     public void employDriver(Driver d) {
         groupOfDrivers.add(d);
         d.setNameOfOrganization(nameOfCompany);
+        saveGroupOfDrivers();
     }
 
     /**
-     * Removes object from the set
+     * Removes driver from the set
      *
-     * @param d - driver to fire
+     * @param d  driver to fire
      */
     public void fireDriver(Driver d) {
         try {
@@ -89,9 +102,10 @@ public class UrbanCompany {
             d.setRouteName("Undefined");
             d.setStartOfRoute(0, 0);
             d.setEndOfRoute(0, 0);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Group of drivers does not have this driver");
         }
+        saveGroupOfDrivers();
     }
 
     /**
@@ -132,14 +146,13 @@ public class UrbanCompany {
     }
 
     /**
-     * Returns list of drivers with unique route
+     * Returns a list of drivers with a given route
      *
-     * @param r - route
-     * @return list of drivers with unique route
+     * @param r route
+     * @return a list of drivers with a given route
      */
     public List<Driver> getDriversOfSpecificRoute(String r) {
-        Set<Driver> specificRoute = new TreeSet<>(groupOfDrivers);
-        return specificRoute.stream()
+        return groupOfDrivers.stream()
                 .filter(d -> d.getRouteName().compareToIgnoreCase(r) == 0)
                 .collect(Collectors.toList());
     }
@@ -147,7 +160,7 @@ public class UrbanCompany {
     /**
      * Returns count of transports where the parameter is located at range of transport's begin and end time
      *
-     * @param t - time, is used to count transports
+     * @param t  time, is used to count transports
      * @return count of transports
      */
     public long getCountOfTransportsAtTime(LocalTime t) {
@@ -158,56 +171,158 @@ public class UrbanCompany {
                 .count();
     }
 
+    /**
+     * Saves Set<Transport> in depot.ser using serialization
+     */
+    private void saveDepot() {
+        try {
+            FileOutputStream fos = new FileOutputStream("depot.ser");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(depot);
+            oos.close();
+            fos.close();
+            System.out.println("Serialized data is saved in depot.ser");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-    // Temporary -------------------------------------------------------------------------------------------
+    /**
+     * Saves Set<Driver> in drivers.ser using serialization
+     */
+    private void saveGroupOfDrivers() {
+        try {
+            FileOutputStream fos = new FileOutputStream("drivers.ser");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(groupOfDrivers);
+            oos.close();
+            fos.close();
+            System.out.println("Serialized data is saved in drivers.ser");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Saves Dispatcher in dispatcher.ser using serialization
+     */
+    private void saveDispatcher() {
+        try {
+            FileOutputStream fos = new FileOutputStream("dispatcher.ser");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(dispatcher);
+            oos.close();
+            fos.close();
+            System.out.println("Serialized data is saved in dispatcher.ser");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Reads depot.ser and initializes Set<Transport> with new object
+     */
+    private void readDepot() {
+        try {
+            FileInputStream fis = new FileInputStream("depot.ser");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            var object = ois.readObject();
+            if (object != null)
+                depot = (Set<Transport>) object;
+            ois.close();
+            fis.close();
+            System.out.println("Depot.ser was successfully read");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Reads drivers.ser and initializes Set<Driver> with new object
+     */
+    private void readGroupOfDrivers() {
+        try {
+            FileInputStream fis = new FileInputStream("drivers.ser");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            var object = ois.readObject();
+            if (object != null)
+                groupOfDrivers = (Set<Driver>) object;
+            ois.close();
+            fis.close();
+            System.out.println("Drivers.ser was successfully read");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Reads dispatcher.ser and initializes Dispatcher with new object
+     */
+    private void readDispatcher() {
+        try {
+            FileInputStream fis = new FileInputStream("dispatcher.ser");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            var object = ois.readObject();
+            if (object != null)
+                dispatcher = (Dispatcher) object;
+            ois.close();
+            fis.close();
+            System.out.println("Drivers.ser was successfully read");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*// Temporary -------------------------------------------------------------------------------------------
     private void printDriverInfo(Driver d) {
         System.out.println("Full name: " + d.getSurname() + " " + d.getName() + " " + d.getPatronymic());
         System.out.println("Route: " + d.getRouteName());
     }
+    // -----------------------------------------------------------------------------------------------------*/
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         UrbanCompany urbanCompany = new UrbanCompany("TransportCompany");
+//        urbanCompany.getDepot();
 
-        Person person = new Person("Lan", "Konta", "Po",
+        /*Person person = new Person("Lan", "Konta", "Po",
                 "8283791236", "Somewhere #1");
 
         Employee employee = new Employee(person);
 
-        Driver driver1 = new Driver(employee, LocalDate.of(2009, 10, 18),
-                LocalTime.of(7, 0), LocalTime.of(17, 30), "North-center", "543562");
-        Driver driver2 = new Driver(employee, LocalDate.of(2006, 10, 18),
-                LocalTime.of(8, 30), LocalTime.of(19, 30), "West-center", "543562");
+        Driver driver1 = new Driver(employee, LocalDate.of(2012, 3, 9),
+                LocalTime.of(6, 30), LocalTime.of(20, 30), "West-North", "392884");*/
+        /*Driver driver2 = new Driver(employee, LocalDate.of(2006, 10, 18),
+                LocalTime.of(8, 30), LocalTime.of(19, 30), "West-center", "543562");*/
 
-        Transport transport1 = new Transport("Bus", "BH 7877 MV", "837463", driver1);
-        Transport transport2 = new Transport("Bus", "BH 2757 MV", "287363", driver2);
+        /*Transport transport1 = new Transport("Bus", "BH 7877 MV", "837463", driver1);
+        Transport transport2 = new Transport("Bus", "BH 2757 MV", "287363", driver2);*/
 
-        Dispatcher dispatcher = new Dispatcher(employee);
+//        Dispatcher dispatcher = new Dispatcher(employee);
 
-        urbanCompany.setDispatcher(dispatcher);
+//        urbanCompany.employDispatcher(dispatcher);
 
-        urbanCompany.employDriver(driver1);
-        urbanCompany.employDriver(driver2);
+        /*urbanCompany.employDriver(driver1);
+        urbanCompany.employDriver(driver2);*/
 
-        urbanCompany.addTransportToDepot(transport1);
-        urbanCompany.addTransportToDepot(transport2);
+        /*urbanCompany.addTransportToDepot(transport1);
+        urbanCompany.addTransportToDepot(transport2);*/
 
-        System.out.println(urbanCompany.getAverageDriverWorkingTime());
-        System.out.println(urbanCompany.getAverageLengthOfService());
-        System.out.println(urbanCompany.getDriverWithGreatLengthOfService());
+//        urbanCompany.employDriver(driver1);
 
-        for (Driver d :
-                urbanCompany.getDriversOfSpecificRoute("north-center")) {
-            System.out.println("------------------");
-            urbanCompany.printDriverInfo(d);
-            System.out.println("------------------");
-        }
+        System.out.println("Average working time: " + urbanCompany.getAverageDriverWorkingTime());
+        System.out.println("Average length of service: " + urbanCompany.getAverageLengthOfService());
+        System.out.println("Driver with greatest length of service: " + urbanCompany.getDriverWithGreatLengthOfService());
 
-        System.out.println(urbanCompany.getCountOfTransportsAtTime(LocalTime.of(7, 10)));
+        System.out.println(urbanCompany.getDriversOfSpecificRoute("north-center"));
+
+        System.out.println("\nTransports at given time: " + urbanCompany.getCountOfTransportsAtTime(LocalTime.of(7, 10)));
 
         // Unemployment
-        urbanCompany.fireDriver(driver1);
-        System.out.println(driver1);
+        /*urbanCompany.fireDriver(driver1);
+        System.out.println(driver1);*/
 
-        System.out.println(dispatcher);
+        /*System.out.println(urbanCompany.getDepot());
+        System.out.println(urbanCompany.getGroupOfDrivers());
+        System.out.println(urbanCompany.getDispatcher());*/
     }
 }

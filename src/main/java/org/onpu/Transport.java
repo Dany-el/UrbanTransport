@@ -1,10 +1,11 @@
 package org.onpu;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Transport implements Printable, Comparable<Transport>{
+public class Transport implements Printable, Comparable<Transport>, Serializable {
     private Driver driver;
     private String type;
     private String routeName;

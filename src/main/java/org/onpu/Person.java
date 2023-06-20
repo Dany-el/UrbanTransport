@@ -1,10 +1,11 @@
 package org.onpu;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Person implements Printable {
+public class Person implements Printable, Serializable {
     private String name;
     private String surname;
     private String patronymic;
