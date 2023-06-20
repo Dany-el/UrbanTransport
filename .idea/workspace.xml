@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="added equals,hashCode and compareTo methods, moved a bit upper">
+    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="deleted todo">
+      <change afterPath="$PROJECT_DIR$/depot.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dispatcher.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/drivers.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Dispatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Transport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Transport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,19 +45,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "features",
-    "last.edited.regexp": "22:33",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "cn.yiiguxing.plugin.translate"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;features&quot;,
+    &quot;last.edited.regexp&quot;: &quot;22:33&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;cn.yiiguxing.plugin.translate&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.UrbanCompany">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.onpu.Main" />
@@ -285,7 +290,35 @@
       <option name="project" value="LOCAL" />
       <updated>1687194601673</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="wrote some comments to the code. added exceptions if start or end time does not fit in range">
+      <created>1687196013095</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1687196013095</updated>
+    </task>
+    <task id="LOCAL-00029" summary="changed list to set, optimize code reading by using streams, added comments to main methods of the class">
+      <created>1687196072586</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1687196072586</updated>
+    </task>
+    <task id="LOCAL-00030" summary="idea changes">
+      <created>1687196093921</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1687196093921</updated>
+    </task>
+    <task id="LOCAL-00031" summary="deleted todo">
+      <created>1687196292528</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1687196292528</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -327,8 +360,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First commit" />
-    <MESSAGE value="Added constructors, getters" />
     <MESSAGE value="Testing exceptions" />
     <MESSAGE value="Added comments" />
     <MESSAGE value="Added methods to work with fields of Driver and Transport" />
@@ -350,7 +381,11 @@
     <MESSAGE value="sth changed" />
     <MESSAGE value="added equals and hashCode methods, moved a bit upper" />
     <MESSAGE value="added equals,hashCode and compareTo methods, moved a bit upper" />
-    <option name="LAST_COMMIT_MESSAGE" value="added equals,hashCode and compareTo methods, moved a bit upper" />
+    <MESSAGE value="wrote some comments to the code. added exceptions if start or end time does not fit in range" />
+    <MESSAGE value="changed list to set, optimize code reading by using streams, added comments to main methods of the class" />
+    <MESSAGE value="idea changes" />
+    <MESSAGE value="deleted todo" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted todo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

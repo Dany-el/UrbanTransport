@@ -6,18 +6,18 @@ import java.time.LocalTime;
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        Person person = new Person("Daniel", "Yablonskyi", "Olexandrovich",
-                "0689782508", "Manezna st. #20");
+        Person person = new Person("", "", "",
+                "", "");
 //        System.out.println(person);
 
-        Employee employee = new Employee(person, "OdesTrans");
+        Employee employee = new Employee(person, "Transport");
 //        System.out.println(employee);
 
         Driver driver = new Driver(employee, LocalDate.of(2009, 10, 18),
                 LocalTime.of(7,0), LocalTime.of(19,30), "North-center", "543562");
         System.out.println(driver);
 
-        Transport transport = new Transport("Bus", "BH 7777 MV", "837463", driver);
+        Transport transport = new Transport("Bus", "LS 7777 MV", "837463", driver);
 //        System.out.println(transport);
 
         Dispatcher dispatcher = new Dispatcher(employee);
