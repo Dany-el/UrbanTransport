@@ -5,6 +5,8 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 // TODO Add possibility to fire driver and remove transport by id
@@ -43,7 +45,7 @@ public class UrbanCompany {
     /**
      * Works as setter
      *
-     * @param dispatcher  object to be set as field dispatcher
+     * @param dispatcher object to be set as field dispatcher
      */
     public void employDispatcher(Dispatcher dispatcher) {
         this.dispatcher = dispatcher;
@@ -58,7 +60,7 @@ public class UrbanCompany {
     /**
      * Adds transport to depot
      *
-     * @param t  transport to add to depot
+     * @param t transport to add to depot
      */
     public void addTransportToDepot(Transport t) {
         depot.add(t);
@@ -66,9 +68,9 @@ public class UrbanCompany {
     }
 
     /**
-     * Removes transport from depot
+     * Removes transport from the depot
      *
-     * @param t  transport to remove from depot
+     * @param t transport to remove from depot
      */
     public void removeTransportFromDepot(Transport t) {
         try {
@@ -77,6 +79,22 @@ public class UrbanCompany {
             System.out.println("Depot does not have this transport");
         }
         saveDepot();
+    }
+
+    /**
+     * Removes transport from the depot
+     * @param id id to find the transport in set
+     * @throws Exception if id is not right written
+     */
+    public void removeTransportFromDepot(String id) throws Exception {
+        Pattern pattern = Pattern.compile("^\\d{6}$");
+        Matcher matcher = pattern.matcher(id);
+        if (matcher.find()) {
+            depot = depot.stream()
+                    .filter(t -> !t.getId().equals(id))
+                    .collect(Collectors.toSet());
+            saveDepot();
+        } else throw new Exception("Invalid id");
     }
 
     /**
@@ -93,7 +111,7 @@ public class UrbanCompany {
     /**
      * Removes driver from the set
      *
-     * @param d  driver to fire
+     * @param d driver to fire
      */
     public void fireDriver(Driver d) {
         try {
@@ -106,6 +124,22 @@ public class UrbanCompany {
             System.out.println("Group of drivers does not have this driver");
         }
         saveGroupOfDrivers();
+    }
+
+    /**
+     * Removes driver from the set
+     * @param id id to find the driver in set
+     * @throws Exception if id is not right written
+     */
+    public void fireDriver(String id) throws Exception {
+        Pattern pattern = Pattern.compile("^\\d{6}$");
+        Matcher matcher = pattern.matcher(id);
+        if (matcher.find()) {
+            groupOfDrivers = groupOfDrivers.stream()
+                    .filter(d -> !d.getId().equals(id))
+                    .collect(Collectors.toSet());
+            saveGroupOfDrivers();
+        } else throw new Exception("Invalid id");
     }
 
     /**
@@ -160,7 +194,7 @@ public class UrbanCompany {
     /**
      * Returns count of transports where the parameter is located at range of transport's begin and end time
      *
-     * @param t  time, is used to count transports
+     * @param t time, is used to count transports
      * @return count of transports
      */
     public long getCountOfTransportsAtTime(LocalTime t) {
@@ -250,7 +284,7 @@ public class UrbanCompany {
             ois.close();
             fis.close();
             System.out.println("Drivers.ser was successfully read");
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -280,9 +314,12 @@ public class UrbanCompany {
     }
     // -----------------------------------------------------------------------------------------------------*/
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         UrbanCompany urbanCompany = new UrbanCompany("TransportCompany");
-//        urbanCompany.getDepot();
+//        urbanCompany.removeTransportFromDepot("837463");
+        System.out.println(urbanCompany.getDepot());
+//        urbanCompany.fireDriver("543662");
+        System.out.println(urbanCompany.getGroupOfDrivers());
 
         /*Person person = new Person("Lan", "Konta", "Po",
                 "8283791236", "Somewhere #1");
@@ -290,33 +327,33 @@ public class UrbanCompany {
         Employee employee = new Employee(person);
 
         Driver driver1 = new Driver(employee, LocalDate.of(2012, 3, 9),
-                LocalTime.of(6, 30), LocalTime.of(20, 30), "West-North", "392884");*/
-        /*Driver driver2 = new Driver(employee, LocalDate.of(2006, 10, 18),
-                LocalTime.of(8, 30), LocalTime.of(19, 30), "West-center", "543562");*/
+                LocalTime.of(6, 30), LocalTime.of(20, 30), "West-North", "392884");
+        Driver driver2 = new Driver(employee, LocalDate.of(2006, 10, 18),
+                LocalTime.of(8, 30), LocalTime.of(19, 30), "West-center", "543562");
 
-        /*Transport transport1 = new Transport("Bus", "BH 7877 MV", "837463", driver1);
-        Transport transport2 = new Transport("Bus", "BH 2757 MV", "287363", driver2);*/
+        Transport transport1 = new Transport("Bus", "BH 7877 MV", "837463", driver1);
+        Transport transport2 = new Transport("Bus", "BH 2757 MV", "287363", driver2);
 
-//        Dispatcher dispatcher = new Dispatcher(employee);
+        Dispatcher dispatcher = new Dispatcher(employee);
 
-//        urbanCompany.employDispatcher(dispatcher);
+        urbanCompany.employDispatcher(dispatcher);
 
-        /*urbanCompany.employDriver(driver1);
-        urbanCompany.employDriver(driver2);*/
+        urbanCompany.employDriver(driver1);
+        urbanCompany.employDriver(driver2);
 
-        /*urbanCompany.addTransportToDepot(transport1);
+        urbanCompany.addTransportToDepot(transport1);
         urbanCompany.addTransportToDepot(transport2);*/
 
 //        urbanCompany.employDriver(driver1);
 
-        System.out.println("Average working time: " + urbanCompany.getAverageDriverWorkingTime());
+        /*System.out.println("Average working time: " + urbanCompany.getAverageDriverWorkingTime());
         System.out.println("Average length of service: " + urbanCompany.getAverageLengthOfService());
         System.out.println("Driver with greatest length of service: " + urbanCompany.getDriverWithGreatLengthOfService());
 
         System.out.println(urbanCompany.getDriversOfSpecificRoute("north-center"));
 
         System.out.println("\nTransports at given time: " + urbanCompany.getCountOfTransportsAtTime(LocalTime.of(7, 10)));
-
+*/
         // Unemployment
         /*urbanCompany.fireDriver(driver1);
         System.out.println(driver1);*/
