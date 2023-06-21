@@ -130,6 +130,7 @@ public class Transport implements Printable, Comparable<Transport>, Serializable
         return driver;
     }
 
-
-
+    public String getId() {
+        return id;
+    }
 }
