@@ -27,6 +27,9 @@ public class Transport implements Printable, Comparable<Transport>, Serializable
         setId(id);
     }
 
+    // really useful?
+    // ---------------------------------------
+
     Transport(String type, String number, String id) throws Exception {
         this.type = type;
         setNumber(number);
@@ -37,6 +40,8 @@ public class Transport implements Printable, Comparable<Transport>, Serializable
         this.driver = driver;
         this.routeName = driver.getRouteName();
     }
+
+    // ------------------------------------------
 
     Transport(Transport transport){
         type = transport.type;
@@ -52,6 +57,7 @@ public class Transport implements Printable, Comparable<Transport>, Serializable
                 "\nId    : " + id +
                 "\nDriver initials: " +
                 driver.getName() + " " + driver.getSurname() + " " + driver.getPatronymic() + " " +
+                "(" + driver.getId() + ")" +
                 "\nRoute \"" + routeName + "\"";
     }
 
@@ -122,8 +128,10 @@ public class Transport implements Printable, Comparable<Transport>, Serializable
     }
 
     public void setDriver(Driver driver) {
-        this.driver = driver;
-        this.routeName = driver.getRouteName();
+        if (this.driver != driver){
+            this.driver = driver;
+            this.routeName = driver.getRouteName();
+        }
     }
 
     public Driver getDriver() {
