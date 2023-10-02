@@ -1,5 +1,7 @@
 package org.onpu;
 
+import org.onpu.entities.*;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 

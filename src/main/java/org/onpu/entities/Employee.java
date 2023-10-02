@@ -1,4 +1,4 @@
-package org.onpu;
+package org.onpu.entities;
 
 import java.util.Objects;
 
@@ -10,14 +10,19 @@ public class Employee extends Person {
         nameOfOrganization = "Unemployed";
     }
 
-    Employee(Person person, String nameOfOrganization) {
+    public Employee(Person person, String nameOfOrganization) {
         super(person);
         this.nameOfOrganization = nameOfOrganization;
     }
 
-    Employee(Person obj) {
+    public Employee(Person obj) {
         super(obj);
     }
+
+    public void setNameOfOrganization(String nameOfOrganization) {
+        this.nameOfOrganization = nameOfOrganization;
+    }
+
 
     @Override
     public String toString() {
@@ -42,7 +47,4 @@ public class Employee extends Person {
         return result;
     }
 
-    public void setNameOfOrganization(String nameOfOrganization) {
-        this.nameOfOrganization = nameOfOrganization;
-    }
 }

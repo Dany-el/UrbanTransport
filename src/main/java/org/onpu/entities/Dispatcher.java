@@ -1,16 +1,11 @@
-package org.onpu;
+package org.onpu.entities;
 
 import java.time.LocalTime;
 
 public class Dispatcher extends Employee {
 
-    Dispatcher(Employee employee) {
+    public Dispatcher(Employee employee) {
         super(employee);
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
     }
 
     /**
@@ -102,5 +97,10 @@ public class Dispatcher extends Employee {
         copy.setStartOfRoute(startOfRoute);
         copy.setEndOfRoute(endOfRoute);
         return copy;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

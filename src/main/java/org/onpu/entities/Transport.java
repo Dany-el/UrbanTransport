@@ -1,4 +1,6 @@
-package org.onpu;
+package org.onpu.entities;
+
+import org.onpu.Printable;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -12,14 +14,14 @@ public class Transport implements Printable, Comparable<Transport>, Serializable
     private String number;
     private String id;
 
-    Transport() {
+    public Transport() {
         type = "Undefined";
         routeName = "Undefined";
         number = "Undefined";
         id = "Undefined";
     }
 
-    Transport(String type, String number, String id, Driver driver) throws Exception {
+    public Transport(String type, String number, String id, Driver driver) throws Exception {
         this.type = type;
         this.routeName = driver.getRouteName();
         this.driver = driver;
@@ -30,70 +32,24 @@ public class Transport implements Printable, Comparable<Transport>, Serializable
     // really useful?
     // ---------------------------------------
 
-    Transport(String type, String number, String id) throws Exception {
+    public Transport(String type, String number, String id) throws Exception {
         this.type = type;
         setNumber(number);
         setId(id);
     }
 
-    Transport(Driver driver) {
+    public Transport(Driver driver) {
         this.driver = driver;
         this.routeName = driver.getRouteName();
     }
 
     // ------------------------------------------
 
-    Transport(Transport transport){
+    public Transport(Transport transport) {
         type = transport.type;
         number = transport.number;
         id = transport.id;
         setDriver(transport.getDriver());
-    }
-
-    @Override
-    public String toString() {
-        return "\nType  : " + type +
-                "\nNumber: " + number +
-                "\nId    : " + id +
-                "\nDriver initials: " +
-                driver.getName() + " " + driver.getSurname() + " " + driver.getPatronymic() + " " +
-                "(" + driver.getId() + ")" +
-                "\nRoute \"" + routeName + "\"";
-    }
-
-
-    @Override
-    public int compareTo(Transport o) {
-        return this.id.compareTo(o.id);
-    }
-
-    @Override
-    public void printInfo() {
-        System.out.println(this);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Transport transport = (Transport) o;
-
-        if (!Objects.equals(driver, transport.driver)) return false;
-        if (!Objects.equals(type, transport.type)) return false;
-        if (!Objects.equals(routeName, transport.routeName)) return false;
-        if (!Objects.equals(number, transport.number)) return false;
-        return Objects.equals(id, transport.id);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = driver != null ? driver.hashCode() : 0;
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        result = 31 * result + (routeName != null ? routeName.hashCode() : 0);
-        result = 31 * result + (number != null ? number.hashCode() : 0);
-        result = 31 * result + (id != null ? id.hashCode() : 0);
-        return result;
     }
 
     /**
@@ -128,7 +84,7 @@ public class Transport implements Printable, Comparable<Transport>, Serializable
     }
 
     public void setDriver(Driver driver) {
-        if (this.driver != driver){
+        if (this.driver != driver) {
             this.driver = driver;
             this.routeName = driver.getRouteName();
         }
@@ -140,5 +96,50 @@ public class Transport implements Printable, Comparable<Transport>, Serializable
 
     public String getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "\nType  : " + type +
+                "\nNumber: " + number +
+                "\nId    : " + id +
+                "\nDriver initials: " +
+                driver.getName() + " " + driver.getSurname() + " " + driver.getPatronymic() + " " +
+                "(" + driver.getId() + ")" +
+                "\nRoute \"" + routeName + "\"";
+    }
+
+    @Override
+    public int compareTo(Transport o) {
+        return this.id.compareTo(o.id);
+    }
+
+    @Override
+    public void printInfo() {
+        System.out.println(this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Transport transport = (Transport) o;
+
+        if (!Objects.equals(driver, transport.driver)) return false;
+        if (!Objects.equals(type, transport.type)) return false;
+        if (!Objects.equals(routeName, transport.routeName)) return false;
+        if (!Objects.equals(number, transport.number)) return false;
+        return Objects.equals(id, transport.id);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = driver != null ? driver.hashCode() : 0;
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (routeName != null ? routeName.hashCode() : 0);
+        result = 31 * result + (number != null ? number.hashCode() : 0);
+        result = 31 * result + (id != null ? id.hashCode() : 0);
+        return result;
     }
 }

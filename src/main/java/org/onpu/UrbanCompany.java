@@ -1,5 +1,7 @@
 package org.onpu;
 
+import org.onpu.entities.*;
+
 import java.io.*;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -15,14 +17,14 @@ public class UrbanCompany {
     private Dispatcher dispatcher;
     private String nameOfCompany;
 
-    UrbanCompany(String c) {
+    public UrbanCompany(String c) {
         nameOfCompany = c;
         readDepot();
         readGroupOfDrivers();
         readDispatcher();
     }
 
-    UrbanCompany(Set<Transport> depot, Set<Driver> groupOfDrivers, Dispatcher dispatcher) {
+    public UrbanCompany(Set<Transport> depot, Set<Driver> groupOfDrivers, Dispatcher dispatcher) {
         this.depot = depot;
         this.groupOfDrivers = groupOfDrivers;
         this.dispatcher = dispatcher;

@@ -1,4 +1,6 @@
-package org.onpu;
+package org.onpu.entities;
+
+import org.onpu.Printable;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -11,6 +13,31 @@ public class Person implements Printable, Serializable {
     private String patronymic;
     private String phoneNumber;
     private String livingAddress;
+
+    public Person() {
+        name = "Undefined";
+        surname = "Undefined";
+        patronymic = "Undefined";
+        phoneNumber = "Undefined";
+        livingAddress = "Undefined";
+    }
+
+    public Person(String name, String surname, String patronymic,
+                  String phoneNumber, String livingAddress) throws Exception {
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        setPhoneNumber(phoneNumber);
+        this.livingAddress = livingAddress;
+    }
+
+    public Person(Person obj) {
+        name = obj.name;
+        surname = obj.surname;
+        patronymic = obj.patronymic;
+        phoneNumber = obj.phoneNumber;
+        livingAddress = obj.livingAddress;
+    }
 
     public String getName() {
         return name;
@@ -32,6 +59,7 @@ public class Person implements Printable, Serializable {
         return livingAddress;
     }
 
+
     /**
      * @param phoneNumber 10-digit phone number
      * @throws Exception phone number length is less or greater than 10
@@ -45,30 +73,6 @@ public class Person implements Printable, Serializable {
             throw new Exception("Invalid phone number");
     }
 
-    Person() {
-        name = "Undefined";
-        surname = "Undefined";
-        patronymic = "Undefined";
-        phoneNumber = "Undefined";
-        livingAddress = "Undefined";
-    }
-
-    Person(String name, String surname, String patronymic,
-           String phoneNumber, String livingAddress) throws Exception {
-        this.name = name;
-        this.surname = surname;
-        this.patronymic = patronymic;
-        setPhoneNumber(phoneNumber);
-        this.livingAddress = livingAddress;
-    }
-
-    Person(Person obj) {
-        name = obj.name;
-        surname = obj.surname;
-        patronymic = obj.patronymic;
-        phoneNumber = obj.phoneNumber;
-        livingAddress = obj.livingAddress;
-    }
 
     @Override
     public boolean equals(Object o) {
