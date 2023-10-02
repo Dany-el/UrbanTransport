@@ -9,11 +9,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-// TODO Add possibility to fire driver and remove transport by id
-
 public class UrbanCompany {
-    private Set<Transport> depot = new TreeSet<>();
-    private Set<Driver> groupOfDrivers = new TreeSet<>();
+    private Set<Transport> depot;
+    private Set<Driver> groupOfDrivers;
     private Dispatcher dispatcher;
     private String nameOfCompany;
 
@@ -83,6 +81,7 @@ public class UrbanCompany {
 
     /**
      * Removes transport from the depot
+     *
      * @param id id to find the transport in set
      * @throws Exception if id is not right written
      */
@@ -109,6 +108,22 @@ public class UrbanCompany {
     }
 
     /**
+     * Removes current driver from transport changing the object
+     *
+     * @param id id to find the object
+     */
+    private void removeDriverFromTransport(String id) {
+        depot = depot.stream()
+                .map(t -> {
+                    if (Objects.equals(t.getDriver().getId(), id))
+                        t.setDriver(new Driver());
+                    return t;
+                })
+                .collect(Collectors.toSet());
+        saveDepot();
+    }
+
+    /**
      * Removes driver from the set
      *
      * @param d driver to fire
@@ -120,14 +135,16 @@ public class UrbanCompany {
             d.setRouteName("Undefined");
             d.setStartOfRoute(0, 0);
             d.setEndOfRoute(0, 0);
+            removeDriverFromTransport(d.getId());
         } catch (Exception e) {
             System.out.println("Group of drivers does not have this driver");
         }
         saveGroupOfDrivers();
     }
-
+    
     /**
      * Removes driver from the set
+     *
      * @param id id to find the driver in set
      * @throws Exception if id is not right written
      */
@@ -135,9 +152,14 @@ public class UrbanCompany {
         Pattern pattern = Pattern.compile("^\\d{6}$");
         Matcher matcher = pattern.matcher(id);
         if (matcher.find()) {
-            groupOfDrivers = groupOfDrivers.stream()
-                    .filter(d -> !d.getId().equals(id))
-                    .collect(Collectors.toSet());
+            // There are always two collections, which equal and not equal to id
+            // So we get which has true(is equal) and 'fire' it
+            Map<Boolean, Set<Driver>> partitionedDrivers = groupOfDrivers.stream()
+                            .collect(Collectors.partitioningBy(d -> d.getId().equals(id), Collectors.toSet()));
+
+            partitionedDrivers.get(true).forEach(this::fireDriver);
+            groupOfDrivers = partitionedDrivers.get(false);
+
             saveGroupOfDrivers();
         } else throw new Exception("Invalid id");
     }
@@ -210,7 +232,7 @@ public class UrbanCompany {
      */
     private void saveDepot() {
         try {
-            FileOutputStream fos = new FileOutputStream("depot.ser");
+            FileOutputStream fos = new FileOutputStream("src/main/resources/saves/depot.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(depot);
             oos.close();
@@ -226,7 +248,7 @@ public class UrbanCompany {
      */
     private void saveGroupOfDrivers() {
         try {
-            FileOutputStream fos = new FileOutputStream("drivers.ser");
+            FileOutputStream fos = new FileOutputStream("src/main/resources/saves/drivers.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(groupOfDrivers);
             oos.close();
@@ -242,7 +264,7 @@ public class UrbanCompany {
      */
     private void saveDispatcher() {
         try {
-            FileOutputStream fos = new FileOutputStream("dispatcher.ser");
+            FileOutputStream fos = new FileOutputStream("src/main/resources/saves/dispatcher.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(dispatcher);
             oos.close();
@@ -258,7 +280,7 @@ public class UrbanCompany {
      */
     private void readDepot() {
         try {
-            FileInputStream fis = new FileInputStream("depot.ser");
+            FileInputStream fis = new FileInputStream("src/main/resources/saves/depot.ser");
             ObjectInputStream ois = new ObjectInputStream(fis);
             var object = ois.readObject();
             if (object != null)
@@ -266,8 +288,8 @@ public class UrbanCompany {
             ois.close();
             fis.close();
             System.out.println("Depot.ser was successfully read");
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            depot = new TreeSet<>();
         }
     }
 
@@ -276,7 +298,7 @@ public class UrbanCompany {
      */
     private void readGroupOfDrivers() {
         try {
-            FileInputStream fis = new FileInputStream("drivers.ser");
+            FileInputStream fis = new FileInputStream("src/main/resources/saves/drivers.ser");
             ObjectInputStream ois = new ObjectInputStream(fis);
             var object = ois.readObject();
             if (object != null)
@@ -285,7 +307,7 @@ public class UrbanCompany {
             fis.close();
             System.out.println("Drivers.ser was successfully read");
         } catch (Exception e) {
-            e.printStackTrace();
+            groupOfDrivers = new TreeSet<>();
         }
     }
 
@@ -294,7 +316,7 @@ public class UrbanCompany {
      */
     private void readDispatcher() {
         try {
-            FileInputStream fis = new FileInputStream("dispatcher.ser");
+            FileInputStream fis = new FileInputStream("src/main/resources/saves/dispatcher.ser");
             ObjectInputStream ois = new ObjectInputStream(fis);
             var object = ois.readObject();
             if (object != null)
@@ -302,8 +324,8 @@ public class UrbanCompany {
             ois.close();
             fis.close();
             System.out.println("Drivers.ser was successfully read");
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (Exception ignored) {
+
         }
     }
 
@@ -316,12 +338,8 @@ public class UrbanCompany {
 
     public static void main(String[] args) throws Exception {
         UrbanCompany urbanCompany = new UrbanCompany("TransportCompany");
-//        urbanCompany.removeTransportFromDepot("837463");
-        System.out.println(urbanCompany.getDepot());
-//        urbanCompany.fireDriver("543662");
-        System.out.println(urbanCompany.getGroupOfDrivers());
 
-        /*Person person = new Person("Lan", "Konta", "Po",
+        Person person = new Person("Lan", "Konta", "Po",
                 "8283791236", "Somewhere #1");
 
         Employee employee = new Employee(person);
@@ -336,19 +354,26 @@ public class UrbanCompany {
 
         Dispatcher dispatcher = new Dispatcher(employee);
 
-        urbanCompany.employDispatcher(dispatcher);
-
+        /*urbanCompany.employDispatcher(dispatcher);
         urbanCompany.employDriver(driver1);
-        urbanCompany.employDriver(driver2);
+        urbanCompany.employDriver(driver2);*/
 
-        urbanCompany.addTransportToDepot(transport1);
+//        urbanCompany.fireDriver("392884");
+//        urbanCompany.fireDriver(driver1);
+
+        /*urbanCompany.addTransportToDepot(transport1);
         urbanCompany.addTransportToDepot(transport2);*/
+//        urbanCompany.removeTransportFromDepot(transport2);
+
+
+        System.out.println(urbanCompany.getDepot());
+        System.out.println(urbanCompany.getGroupOfDrivers());
 
 //        urbanCompany.employDriver(driver1);
 
         /*System.out.println("Average working time: " + urbanCompany.getAverageDriverWorkingTime());
         System.out.println("Average length of service: " + urbanCompany.getAverageLengthOfService());
-        System.out.println("Driver with greatest length of service: " + urbanCompany.getDriverWithGreatLengthOfService());
+        System.out.println("Driver with the greatest length of service: " + urbanCompany.getDriverWithGreatLengthOfService());
 
         System.out.println(urbanCompany.getDriversOfSpecificRoute("north-center"));
 
