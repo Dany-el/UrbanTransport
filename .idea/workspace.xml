@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="some changes">
+    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="added possibility to remove object(driver or transport) from the set by id">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/depot.ser" beforeDir="false" afterPath="$PROJECT_DIR$/depot.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers.ser" beforeDir="false" afterPath="$PROJECT_DIR$/drivers.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/depot.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dispatcher.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drivers.ser" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Transport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Transport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" afterDir="false" />
     </list>
@@ -37,25 +38,34 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2MjpfeHtPU3F89zM1zVM32J59VL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;features&quot;,
-    &quot;last.edited.regexp&quot;: &quot;22:33&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;cn.yiiguxing.plugin.translate&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "development",
+    "last.edited.regexp": "22:33",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/saves" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.UrbanCompany">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.onpu.Main" />
@@ -330,7 +340,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687263950027</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="some changes">
+      <created>1687356453539</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1687356453539</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add getter for id">
+      <created>1687356471167</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1687356471167</updated>
+    </task>
+    <task id="LOCAL-00036" summary="added possibility to remove object(driver or transport) from the set by id">
+      <created>1687356547403</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1687356547403</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -383,9 +414,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added methods to work with fields of Driver and Transport" />
-    <MESSAGE value="Added constructor, some accessors, override method" />
-    <MESSAGE value="Added override methods" />
     <MESSAGE value="Create interface to show info about object" />
     <MESSAGE value="Maven changes" />
     <MESSAGE value="Class to work with entire project" />
@@ -408,7 +436,10 @@
     <MESSAGE value="deleted todo" />
     <MESSAGE value="small changes" />
     <MESSAGE value="added implementation of serialization" />
-    <option name="LAST_COMMIT_MESSAGE" value="added implementation of serialization" />
+    <MESSAGE value="some changes" />
+    <MESSAGE value="add getter for id" />
+    <MESSAGE value="added possibility to remove object(driver or transport) from the set by id" />
+    <option name="LAST_COMMIT_MESSAGE" value="added possibility to remove object(driver or transport) from the set by id" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
