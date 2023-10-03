@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="added private method to remove driver from transport, shortened code of fireDriver method, changed file path in fileStreams">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Dispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/UrbanApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Transport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Transport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +31,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Dany-el"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Dany-el&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -67,7 +63,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "development",
+    "git-widget-placeholder": "gui-dev",
     "last.edited.regexp": "22:33",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -80,7 +76,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources/saves" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UrbanCompany">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.onpu.Main" />
       <module name="UrbanTransport" />
@@ -109,8 +105,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UrbanCompany" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.UrbanCompany" />
       </list>
     </recent_temporary>
   </component>
