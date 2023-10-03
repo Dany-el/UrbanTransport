@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="added private method to remove driver from transport, shortened code of fireDriver method, changed file path in fileStreams">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Dispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Employee.java" afterDir="false" />
+    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Transport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Transport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +23,22 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="development" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="features" />
+        <entry key="$PROJECT_DIR$" value="gui-dev-fx" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,6 +76,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "434",
     "git-widget-placeholder": "development",
     "last.edited.regexp": "22:33",
     "project.structure.last.edited": "Modules",
@@ -111,6 +121,8 @@
       <list>
         <item itemvalue="Application.UrbanCompany" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.UrbanCompany" />
       </list>
     </recent_temporary>
   </component>
@@ -399,7 +411,23 @@
       <option name="project" value="LOCAL" />
       <updated>1696276474986</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="changed a bit of code and moved some classes to entities package">
+      <option name="closed" value="true" />
+      <created>1696278060230</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1696278060230</updated>
+    </task>
+    <task id="LOCAL-00041" summary="some changes">
+      <option name="closed" value="true" />
+      <created>1696278072119</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1696278072119</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -452,7 +480,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added default methods and override methods" />
     <MESSAGE value="Testing(not for long)" />
     <MESSAGE value="Change 'String' to 'LocalTime'" />
     <MESSAGE value="Added 5 new methods to work with 'Lists'" />
@@ -471,13 +498,14 @@
     <MESSAGE value="deleted todo" />
     <MESSAGE value="small changes" />
     <MESSAGE value="added implementation of serialization" />
-    <MESSAGE value="some changes" />
     <MESSAGE value="add getter for id" />
     <MESSAGE value="added possibility to remove object(driver or transport) from the set by id" />
     <MESSAGE value="updated files" />
     <MESSAGE value="added statement to check if driver is not the same" />
     <MESSAGE value="added private method to remove driver from transport, shortened code of fireDriver method, changed file path in fileStreams" />
-    <option name="LAST_COMMIT_MESSAGE" value="added private method to remove driver from transport, shortened code of fireDriver method, changed file path in fileStreams" />
+    <MESSAGE value="changed a bit of code and moved some classes to entities package" />
+    <MESSAGE value="some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

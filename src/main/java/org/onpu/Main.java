@@ -1,36 +1,10 @@
 package org.onpu;
 
-import org.onpu.entities.*;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        Person person = new Person("", "", "",
-                "", "");
-//        System.out.println(person);
-
-        Employee employee = new Employee(person, "Transport");
-//        System.out.println(employee);
-
-        Driver driver = new Driver(employee, LocalDate.of(2009, 10, 18),
-                LocalTime.of(7,0), LocalTime.of(19,30), "North-center", "543562");
-        System.out.println(driver);
-
-        Transport transport = new Transport("Bus", "LS 7777 MV", "837463", driver);
-//        System.out.println(transport);
-
-        Dispatcher dispatcher = new Dispatcher(employee);
-        driver = dispatcher.changeTimeRangeOfRoute(driver, LocalTime.of(8,30), LocalTime.of(20, 30));
-        System.out.println(driver);
-
-        /*transport = dispatcher.changeRouteName(transport, "South-center");
-        driver = dispatcher.changeRouteName(driver, "North-South");
-        System.out.println(transport);
-        System.out.println(driver);
-        transport.setDriver(driver);
-        System.out.println(transport);*/
     }
 }
