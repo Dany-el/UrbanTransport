@@ -20,9 +20,9 @@ public class UrbanApplication extends JFrame {
     private JButton settingsButton = new JButton("Settings");
     private SettingsWindow sw;
     private GridBagConstraints gbc = new GridBagConstraints();
+    private UrbanCompany urbanCompany = new UrbanCompany("Urban Company");
 
     public UrbanApplication() {
-
         mainPanel.setLayout(new GridBagLayout());
         mainPanel.setBackground(Color.decode("#d6f3fa"));
 
@@ -33,6 +33,7 @@ public class UrbanApplication extends JFrame {
         settingsButton.addActionListener(e -> {
             if (sw == null) {
                 sw = new SettingsWindow();
+                sw.setUrbanCompany(urbanCompany);
                 sw.start();
             } else if (!sw.isOpened()) {
                 sw.start();
@@ -78,8 +79,6 @@ public class UrbanApplication extends JFrame {
         mainPanel.add(method5Button, stackComponents(1, 5));
         mainPanel.add(method6Button, stackComponents(1, 6));
         mainPanel.add(settingsButton, stackComponents(1, 7));
-
-        this.add(mainPanel);
     }
 
     private GridBagConstraints stackComponents(int gridx, int gridy) {
@@ -92,12 +91,14 @@ public class UrbanApplication extends JFrame {
         return gbc;
     }
 
+    // TODO tide up this method, put it in constructor
+
     public void start() {
-        UrbanApplication jFrame = new UrbanApplication();
-        jFrame.setTitle("Urban Application");
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jFrame.setSize(300, 500);
-        jFrame.setResizable(false);
-        jFrame.setVisible(true);
+        this.setTitle("Urban Application");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(300, 500);
+        this.add(mainPanel);
+        this.setResizable(false);
+        this.setVisible(true);
     }
 }
