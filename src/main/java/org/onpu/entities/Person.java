@@ -59,6 +59,21 @@ public class Person implements Printable, Serializable {
         return livingAddress;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
+    }
+
+    public void setLivingAddress(String livingAddress) {
+        this.livingAddress = livingAddress;
+    }
 
     /**
      * @param phoneNumber 10-digit phone number

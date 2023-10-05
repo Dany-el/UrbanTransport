@@ -22,6 +22,24 @@ public class Driver extends Employee implements Comparable<Driver> {
         id = "Undefined";
     }
 
+    public Driver(String name, String surname, String patronymic,
+                  String phoneNumber, String livingAddress,
+                  LocalDate startOfCareer,
+                  LocalTime startOfRoute, LocalTime endOfRoute,
+                  String routeName,
+                  String id) throws Exception {
+        this.setName(name);
+        this.setSurname(surname);
+        this.setPatronymic(patronymic);
+        this.setPhoneNumber(phoneNumber);
+        this.setLivingAddress(livingAddress);
+        this.startOfCareer = startOfCareer;
+        this.routeName = routeName;
+        this.startOfRoute = startOfRoute;
+        this.endOfRoute = endOfRoute;
+        setId(id);
+    }
+
     public Driver(Employee employee, LocalDate startOfCareer, LocalTime startOfRoute, LocalTime endOfRoute, String routeName, String id) throws Exception {
         super(employee);
         this.startOfCareer = startOfCareer;
