@@ -143,7 +143,7 @@ public class UrbanCompany {
         }
         saveGroupOfDrivers();
     }
-    
+
     /**
      * Removes driver from the set
      *
@@ -157,7 +157,7 @@ public class UrbanCompany {
             // There are always two collections, which equal and not equal to id
             // So we get which has true(is equal) and 'fire' it
             Map<Boolean, Set<Driver>> partitionedDrivers = groupOfDrivers.stream()
-                            .collect(Collectors.partitioningBy(d -> d.getId().equals(id), Collectors.toSet()));
+                    .collect(Collectors.partitioningBy(d -> d.getId().equals(id), Collectors.toSet()));
 
             partitionedDrivers.get(true).forEach(this::fireDriver);
             groupOfDrivers = partitionedDrivers.get(false);
@@ -227,6 +227,14 @@ public class UrbanCompany {
                         t.isAfter(transport.getDriver().getStartOfRoute()) &&
                                 t.isBefore(transport.getDriver().getEndOfRoute()))
                 .count();
+    }
+
+    public Driver getDriverBy(String id) {
+        return groupOfDrivers
+                .stream()
+                .filter(d -> d.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
