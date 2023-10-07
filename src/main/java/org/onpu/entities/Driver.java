@@ -109,6 +109,10 @@ public class Driver extends Employee implements Comparable<Driver> {
         this.startOfCareer = startOfCareer;
     }
 
+    public LocalDate getStartOfCareer() {
+        return startOfCareer;
+    }
+
     public LocalTime getStartOfRoute() {
         return startOfRoute;
     }
@@ -130,6 +134,21 @@ public class Driver extends Employee implements Comparable<Driver> {
 
     public String getId() {
         return id;
+    }
+
+    public void copyFrom(Driver driver) {
+        this.setName(driver.getName());
+        this.setSurname(driver.getSurname());
+        this.setPatronymic(driver.getPatronymic());
+        this.setLivingAddress(driver.getLivingAddress());
+        try {
+            this.setPhoneNumber(driver.getPhoneNumber());
+        } catch (Exception ignored) {}
+        startOfCareer = driver.startOfCareer;
+        routeName = driver.routeName;
+        startOfRoute = driver.startOfRoute;
+        endOfRoute = driver.endOfRoute;
+        id = driver.id;
     }
 
     @Override
