@@ -71,21 +71,21 @@ public class UrbanApplication extends JFrame {
         });
 
         // Adding components and placing components
-        mainPanel.add(mainText, stackComponents(1, 0));
-        mainPanel.add(method1Button, stackComponents(1, 1));
-        mainPanel.add(method2Button, stackComponents(1, 2));
-        mainPanel.add(method3Button, stackComponents(1, 3));
-        mainPanel.add(method4Button, stackComponents(1, 4));
-        mainPanel.add(method5Button, stackComponents(1, 5));
-        mainPanel.add(method6Button, stackComponents(1, 6));
-        mainPanel.add(settingsButton, stackComponents(1, 7));
+        mainPanel.add(mainText, stackComponents(0));
+        mainPanel.add(method1Button, stackComponents(1));
+        mainPanel.add(method2Button, stackComponents(2));
+        mainPanel.add(method3Button, stackComponents(3));
+        mainPanel.add(method4Button, stackComponents(4));
+        mainPanel.add(method5Button, stackComponents(5));
+        mainPanel.add(method6Button, stackComponents(6));
+        mainPanel.add(settingsButton, stackComponents(7));
     }
 
-    private GridBagConstraints stackComponents(int gridx, int gridy) {
+    private GridBagConstraints stackComponents(int gridy) {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.ipady = 20;
         gbc.weightx = 1.0;
-        gbc.gridx = gridx;
+        gbc.gridx = 1;
         gbc.gridy = gridy;
 
         return gbc;
