@@ -88,7 +88,7 @@ public class UrbanCompany {
      * @throws Exception if id is not right written
      */
     public void removeTransportFromDepot(String id) throws Exception {
-        Pattern pattern = Pattern.compile("^\\d{6}$");
+        Pattern pattern = Pattern.compile("^\\d{8}$");
         Matcher matcher = pattern.matcher(id);
         if (matcher.find()) {
             depot = depot.stream()
@@ -237,10 +237,18 @@ public class UrbanCompany {
                 .orElse(null);
     }
 
+    public Transport getTransportBy(String id) {
+        return depot
+                .stream()
+                .filter(d -> d.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
     /**
      * Saves Set<Transport> in depot.ser using serialization
      */
-    private void saveDepot() {
+    public void saveDepot() {
         try {
             FileOutputStream fos = new FileOutputStream("src/main/resources/saves/depot.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -256,7 +264,7 @@ public class UrbanCompany {
     /**
      * Saves Set<Driver> in drivers.ser using serialization
      */
-    private void saveGroupOfDrivers() {
+    public void saveGroupOfDrivers() {
         try {
             FileOutputStream fos = new FileOutputStream("src/main/resources/saves/drivers.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -272,7 +280,7 @@ public class UrbanCompany {
     /**
      * Saves Dispatcher in dispatcher.ser using serialization
      */
-    private void saveDispatcher() {
+    public void saveDispatcher() {
         try {
             FileOutputStream fos = new FileOutputStream("src/main/resources/saves/dispatcher.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -397,4 +405,6 @@ public class UrbanCompany {
         System.out.println(urbanCompany.getGroupOfDrivers());
         System.out.println(urbanCompany.getDispatcher());*/
     }
+
+
 }
