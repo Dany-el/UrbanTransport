@@ -12,14 +12,13 @@ public class JOptionPaneTransport {
     private final JPanel panel = new JPanel(new GridBagLayout());
     private final JLabel typeLabel = new JLabel("Type");
     private final JTextField typeTextField = new JTextField();
-    private final JLabel routeNameLabel = new JLabel("Route name");
-    private final JTextField routeNameTextField = new JTextField();
     private final JLabel idLabel = new JLabel("Transport ID (8-digits)");
     private final JTextField idTextField = new JTextField();
     private final JLabel numberLabel = new JLabel("Number (e.g. AA 3787 BB)");
     private final JTextField numberTextField = new JTextField();
     private final JLabel driverIDLabel = new JLabel("Driver ID");
-    private final JTextField driverIDTextField = new JTextField(6);
+    private final JComboBox<String> driverIDComboBox = new JComboBox<>();
+    //
 
     /**
      * @param gridy - place at y-grid
@@ -44,9 +43,6 @@ public class JOptionPaneTransport {
         typeLabel.setHorizontalAlignment(JLabel.CENTER);
         typeLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
 
-        routeNameLabel.setHorizontalAlignment(JLabel.CENTER);
-        routeNameLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
-
         idLabel.setHorizontalAlignment(JLabel.CENTER);
         idLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
 
@@ -64,9 +60,6 @@ public class JOptionPaneTransport {
         panel.add(typeLabel, stackComponents(0));
         panel.add(typeTextField, stackComponents(1));
 
-        panel.add(routeNameLabel, stackComponents(2));
-        panel.add(routeNameTextField, stackComponents(3));
-
         panel.add(idLabel, stackComponents(4));
         panel.add(idTextField, stackComponents(5));
 
@@ -74,33 +67,51 @@ public class JOptionPaneTransport {
         panel.add(numberTextField, stackComponents(7));
 
         panel.add(driverIDLabel, stackComponents(8));
-        panel.add(driverIDTextField, stackComponents(9));
+        panel.add(driverIDComboBox, stackComponents(9));
     }
 
     /**
-     * Sets all text fields to zero-value
+     * Sets all texts fields to zero-value
      */
     private void clearAll() {
         typeTextField.setText("");
-        routeNameTextField.setText("");
         idTextField.setText("");
         numberTextField.setText("");
-        driverIDTextField.setText("");
+        driverIDComboBox.setSelectedIndex(0);
     }
 
     /**
-     * Groups up all configuration
+     * Updates ComboBox with Driver objects
      *
-     * @return Configured panel with configured components
+     * @param urbanCompany object to get Set of class Driver
      */
-    private JPanel panelWithConfiguredComponents() {
+    private void updateDriverIDComboBox(UrbanCompany urbanCompany) {
+        driverIDComboBox.removeAllItems();
+        driverIDComboBox.addItem("000000");
+        for (Driver d :
+                urbanCompany.getGroupOfDrivers()) {
+            driverIDComboBox.addItem(d.getId());
+        }
+    }
+
+    /**
+     * Updates components
+     * - Configures labels
+     * - Initializes components with transport data
+     * - Panel adds components
+     *
+     * @param urbanCompany object to get Set of class Driver
+     * @return configured JPanel object
+     */
+    private JPanel updatePanelComponents(UrbanCompany urbanCompany) {
         labelsConfiguring();
+        updateDriverIDComboBox(urbanCompany);
         panelAddingComponents();
         return panel;
     }
 
     /**
-     * Creates new Transport depending on user's choice(Ok, Cancel).
+     * Creates new object type of Transport depending on user's choice(Ok, Cancel).
      *
      * @param frame        frame that contains object of this class
      * @param urbanCompany UrbanCompany object
@@ -109,13 +120,13 @@ public class JOptionPaneTransport {
      */
     public Transport createTransport(JFrame frame, UrbanCompany urbanCompany) throws Exception {
         int choice = JOptionPane.showConfirmDialog(null,
-                panelWithConfiguredComponents(),
+                updatePanelComponents(urbanCompany),
                 "Transport creating",
                 JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.PLAIN_MESSAGE);
 
         if (choice == JOptionPane.OK_OPTION) {
-            String driverID = driverIDTextField.getText();
+            String driverID = driverIDComboBox.getItemAt(driverIDComboBox.getSelectedIndex());
             Driver driver;
             if ("000000".equals(driverID)) {
                 driver = new Driver();
@@ -139,33 +150,82 @@ public class JOptionPaneTransport {
         return null;
     }
 
-    private JPanel setTransportDataToTextFields(Transport transport) {
-        labelsConfiguring();
+    /**
+     * Finds index of id in Set of class Driver
+     *
+     * @param id           id to find
+     * @param urbanCompany where to find
+     * @return index of driver in Set
+     */
+    private int findIndexByID(String id, UrbanCompany urbanCompany) {
+        int index = 1;
+        for (Driver d :
+                urbanCompany.getGroupOfDrivers()) {
+            if (!id.equals(d.getId()))
+                index++;
+            else {
+                break;
+            }
+        }
+        return index;
+    }
 
+    /**
+     * Initializes components using transport data
+     *
+     * @param transport    object to get data
+     * @param urbanCompany object to get Set of class Driver
+     */
+    private void initializingComponentsUsingTransportData(Transport transport, UrbanCompany urbanCompany) {
         typeTextField.setText(transport.getType());
         numberTextField.setText(transport.getNumber());
-        routeNameTextField.setText(transport.getRouteName());
         idTextField.setText(transport.getId());
         idTextField.setEnabled(false);
-        String transportID = transport.getDriver().getId();
-        if ("Undefined".equals(transportID))
-            driverIDTextField.setText("000000");
-        else
-            driverIDTextField.setText(transportID);
+        String driverID = transport.getDriver().getId();
+        driverIDComboBox.removeAllItems();
+        updateDriverIDComboBox(urbanCompany);
+        if ("Undefined".equals(driverID)) {
+            driverIDComboBox.setSelectedIndex(0);
+        }
+        else {
+            driverIDComboBox.setSelectedIndex(findIndexByID(driverID, urbanCompany));
+        }
+    }
 
+    /**
+     * Update components
+     * - Configures labels
+     * - Initializes components with transport data
+     * - Panel adds components
+     *
+     * @param transport    object to get data from
+     * @param urbanCompany object to get Set of class Driver
+     * @return configured JPanel object
+     */
+    private JPanel updatePanelComponentsUsingPreviousData(Transport transport, UrbanCompany urbanCompany) {
+        labelsConfiguring();
+        initializingComponentsUsingTransportData(transport, urbanCompany);
         panelAddingComponents();
         return panel;
     }
 
+    /**
+     * Gets edited or not edited fields/comboBox with data and change fields of given transport
+     *
+     * @param frame        frame where should JOptionPane be shown
+     * @param transport    object whose fields are should be edited
+     * @param urbanCompany object to get Set of class Driver
+     * @return edited Transport object
+     */
     public Transport editTransport(JFrame frame, Transport transport, UrbanCompany urbanCompany) {
         int choice = JOptionPane.showConfirmDialog(null,
-                setTransportDataToTextFields(transport),
+                updatePanelComponentsUsingPreviousData(transport, urbanCompany),
                 "Transport creating",
                 JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.PLAIN_MESSAGE);
 
         if (choice == JOptionPane.OK_OPTION) {
-            String driverID = driverIDTextField.getText();
+            String driverID = driverIDComboBox.getItemAt(driverIDComboBox.getSelectedIndex());
             Driver driver;
             if ("000000".equals(driverID)) {
                 driver = new Driver();
@@ -183,12 +243,10 @@ public class JOptionPaneTransport {
                     transport.setNumber(numberTextField.getText());
                 } catch (Exception ignored) {
                 }
-                transport.setRouteName(routeNameTextField.getText());
                 transport.setDriver(driver);
             }
         }
+        clearAll();
         return transport;
     }
 }
-
-
