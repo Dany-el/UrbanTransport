@@ -33,7 +33,7 @@ public class Driver extends Employee implements Comparable<Driver> {
         this.setPatronymic(patronymic);
         this.setPhoneNumber(phoneNumber);
         this.setLivingAddress(livingAddress);
-        this.startOfCareer = startOfCareer;
+        setStartOfCareer(startOfCareer);
         this.routeName = routeName;
         this.startOfRoute = startOfRoute;
         this.endOfRoute = endOfRoute;
@@ -42,7 +42,7 @@ public class Driver extends Employee implements Comparable<Driver> {
 
     public Driver(Employee employee, LocalDate startOfCareer, LocalTime startOfRoute, LocalTime endOfRoute, String routeName, String id) throws Exception {
         super(employee);
-        this.startOfCareer = startOfCareer;
+        setStartOfCareer(startOfCareer);
         this.routeName = routeName;
         this.startOfRoute = startOfRoute;
         this.endOfRoute = endOfRoute;
@@ -106,7 +106,10 @@ public class Driver extends Employee implements Comparable<Driver> {
     }
 
     public void setStartOfCareer(LocalDate startOfCareer) {
-        this.startOfCareer = startOfCareer;
+        if (ChronoUnit.YEARS.between(startOfCareer, LocalDate.now()) > 1)
+            this.startOfCareer = startOfCareer;
+        else
+            throw new RuntimeException("The length of service is less than 1 year");
     }
 
     public LocalDate getStartOfCareer() {
@@ -143,7 +146,8 @@ public class Driver extends Employee implements Comparable<Driver> {
         this.setLivingAddress(driver.getLivingAddress());
         try {
             this.setPhoneNumber(driver.getPhoneNumber());
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
         startOfCareer = driver.startOfCareer;
         routeName = driver.routeName;
         startOfRoute = driver.startOfRoute;
