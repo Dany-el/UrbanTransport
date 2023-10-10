@@ -200,7 +200,9 @@ public class UrbanCompany {
      */
     public Driver getDriverWithGreatLengthOfService() {
         // Sorting by comparing the length of service of driver
-        return groupOfDrivers.stream().toList().get(groupOfDrivers.size() - 1);
+        return groupOfDrivers.stream()
+                .toList()
+                .get(groupOfDrivers.size() - 1);
     }
 
     /**
@@ -229,17 +231,27 @@ public class UrbanCompany {
                 .count();
     }
 
+    /**
+     * Gets Driver object by ID
+     *
+     * @param id id to find the object
+     * @return Driver object or null if object was not found
+     */
     public Driver getDriverBy(String id) {
-        return groupOfDrivers
-                .stream()
+        return groupOfDrivers.stream()
                 .filter(d -> d.getId().equals(id))
                 .findFirst()
                 .orElse(null);
     }
 
+    /**
+     * Gets Transport object by ID
+     *
+     * @param id id to find the object
+     * @return Transport object or null if object was not found
+     */
     public Transport getTransportBy(String id) {
-        return depot
-                .stream()
+        return depot.stream()
                 .filter(d -> d.getId().equals(id))
                 .findFirst()
                 .orElse(null);
@@ -257,7 +269,7 @@ public class UrbanCompany {
             fos.close();
             System.out.println("Serialized data is saved in depot.ser");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
     }
 
@@ -273,7 +285,7 @@ public class UrbanCompany {
             fos.close();
             System.out.println("Serialized data is saved in drivers.ser");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
     }
 
@@ -289,7 +301,7 @@ public class UrbanCompany {
             fos.close();
             System.out.println("Serialized data is saved in dispatcher.ser");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
     }
 
@@ -346,65 +358,4 @@ public class UrbanCompany {
 
         }
     }
-
-    /*// Temporary -------------------------------------------------------------------------------------------
-    private void printDriverInfo(Driver d) {
-        System.out.println("Full name: " + d.getSurname() + " " + d.getName() + " " + d.getPatronymic());
-        System.out.println("Route: " + d.getRouteName());
-    }
-    // -----------------------------------------------------------------------------------------------------*/
-
-    public static void main(String[] args) throws Exception {
-        UrbanCompany urbanCompany = new UrbanCompany("TransportCompany");
-
-        Person person = new Person("Lan", "Konta", "Po",
-                "8283791236", "Somewhere #1");
-
-        Employee employee = new Employee(person);
-
-        Driver driver1 = new Driver(employee, LocalDate.of(2012, 3, 9),
-                LocalTime.of(6, 30), LocalTime.of(20, 30), "West-North", "392884");
-        Driver driver2 = new Driver(employee, LocalDate.of(2006, 10, 18),
-                LocalTime.of(8, 30), LocalTime.of(19, 30), "West-center", "543562");
-
-        Transport transport1 = new Transport("Bus", "BH 7877 MV", "837463", driver1);
-        Transport transport2 = new Transport("Bus", "BH 2757 MV", "287363", driver2);
-
-        Dispatcher dispatcher = new Dispatcher(employee);
-
-        /*urbanCompany.employDispatcher(dispatcher);
-        urbanCompany.employDriver(driver1);
-        urbanCompany.employDriver(driver2);*/
-
-//        urbanCompany.fireDriver("392884");
-//        urbanCompany.fireDriver(driver1);
-
-        /*urbanCompany.addTransportToDepot(transport1);
-        urbanCompany.addTransportToDepot(transport2);*/
-//        urbanCompany.removeTransportFromDepot(transport2);
-
-
-        System.out.println(urbanCompany.getDepot());
-        System.out.println(urbanCompany.getGroupOfDrivers());
-
-//        urbanCompany.employDriver(driver1);
-
-        /*System.out.println("Average working time: " + urbanCompany.getAverageDriverWorkingTime());
-        System.out.println("Average length of service: " + urbanCompany.getAverageLengthOfService());
-        System.out.println("Driver with the greatest length of service: " + urbanCompany.getDriverWithGreatLengthOfService());
-
-        System.out.println(urbanCompany.getDriversOfSpecificRoute("north-center"));
-
-        System.out.println("\nTransports at given time: " + urbanCompany.getCountOfTransportsAtTime(LocalTime.of(7, 10)));
-*/
-        // Unemployment
-        /*urbanCompany.fireDriver(driver1);
-        System.out.println(driver1);*/
-
-        /*System.out.println(urbanCompany.getDepot());
-        System.out.println(urbanCompany.getGroupOfDrivers());
-        System.out.println(urbanCompany.getDispatcher());*/
-    }
-
-
 }
