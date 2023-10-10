@@ -6,6 +6,8 @@ import org.onpu.entities.Transport;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
+import java.util.List;
 
 public final class JOptionPaneTransport {
     private static final GridBagConstraints gbc = new GridBagConstraints();
@@ -18,9 +20,14 @@ public final class JOptionPaneTransport {
     private static final JTextField numberTextField = new JTextField();
     private static final JLabel driverIDLabel = new JLabel("Driver ID");
     private static final JComboBox<String> driverIDComboBox = new JComboBox<>();
+    private static final List<JLabel> labels = Arrays.asList(
+            typeLabel, idLabel, numberLabel, driverIDLabel
+    );
 
     /**
-     * @param gridy - place at y-grid
+     * Stacks components at y coordinate
+     *
+     * @param gridy place at y-grid
      * @return configured GridBagConstraints object
      */
     private GridBagConstraints stackComponents(int gridy) {
@@ -35,20 +42,24 @@ public final class JOptionPaneTransport {
     }
 
     /**
-     * Configuring all labels
+     * Sets all texts fields to zero-value
+     */
+    private void clearAll() {
+        typeTextField.setText("");
+        idTextField.setText("");
+        numberTextField.setText("");
+        driverIDComboBox.setSelectedIndex(0);
+    }
+
+    /**
+     * Sets all labels to the one Font and HorizontalAlignment
      */
     private void labelsConfiguring() {
-        typeLabel.setHorizontalAlignment(JLabel.CENTER);
-        typeLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
-
-        idLabel.setHorizontalAlignment(JLabel.CENTER);
-        idLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
-
-        numberLabel.setHorizontalAlignment(JLabel.CENTER);
-        numberLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
-
-        driverIDLabel.setHorizontalAlignment(JLabel.CENTER);
-        driverIDLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
+        for (JLabel l :
+                labels) {
+            l.setHorizontalAlignment(JLabel.CENTER);
+            l.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
+        }
     }
 
     /**
@@ -69,16 +80,6 @@ public final class JOptionPaneTransport {
     }
 
     /**
-     * Sets all texts fields to zero-value
-     */
-    private void clearAll() {
-        typeTextField.setText("");
-        idTextField.setText("");
-        numberTextField.setText("");
-        driverIDComboBox.setSelectedIndex(0);
-    }
-
-    /**
      * Updates ComboBox with Driver objects
      *
      * @param urbanCompany object to get Set of class Driver
@@ -95,7 +96,7 @@ public final class JOptionPaneTransport {
     /**
      * Updates components
      * - Configures labels
-     * - Initializes components with transport data
+     * - Configures default items in ComboBoxes
      * - Panel adds components
      *
      * @param urbanCompany object to get Set of class Driver
@@ -104,19 +105,19 @@ public final class JOptionPaneTransport {
     private JPanel updatePanelComponents(UrbanCompany urbanCompany) {
         labelsConfiguring();
         updateDriverIDComboBox(urbanCompany);
+        idTextField.setEnabled(true);
         panelAddingComponents();
         return panel;
     }
 
     /**
-     * Creates new object type of Transport depending on user's choice(Ok, Cancel).
+     * Creates new object type of Transport depending on user's choice (Ok, Cancel).
      *
-     * @param frame        frame that contains object of this class
+     * @param frame        frame where JOptionPane should be shown
      * @param urbanCompany UrbanCompany object
      * @return new created Transport object if all conditions have been met
-     * @throws Exception if field numberTextField or idTextField does not match the conditions
      */
-    public Transport createTransport(JFrame frame, UrbanCompany urbanCompany) throws Exception {
+    public Transport createTransport(JFrame frame, UrbanCompany urbanCompany) {
         int choice = JOptionPane.showConfirmDialog(null,
                 updatePanelComponents(urbanCompany),
                 "Transport creating",
@@ -132,17 +133,29 @@ public final class JOptionPaneTransport {
                 driver = urbanCompany.getDriverBy(driverID);
             }
             if (driver == null) {
-                JOptionPane.showMessageDialog(frame, "Driver not found. Try 000000 if driver's not already exist",
+                JOptionPane.showMessageDialog(frame,
+                        "Driver not found. Try 000000 if driver's not already exist",
                         "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (idTextField.getText().length() > 8) {
+                JOptionPane.showMessageDialog(frame,
+                        "ID is not short enough", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (idTextField.getText().length() < 8) {
+                JOptionPane.showMessageDialog(frame,
+                        "ID is not long enough", "Warning", JOptionPane.WARNING_MESSAGE);
             } else {
-                Transport t = new Transport(
-                        typeTextField.getText(),
-                        numberTextField.getText(),
-                        idTextField.getText(),
-                        driver
-                );
-                clearAll();
-                return t;
+                try {
+                    Transport t = new Transport(
+                            typeTextField.getText(),
+                            numberTextField.getText(),
+                            idTextField.getText(),
+                            driver
+                    );
+                    clearAll();
+                    return t;
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(frame, "The number is not correct",
+                            "Warning", JOptionPane.WARNING_MESSAGE);
+                }
             }
         }
         return null;
@@ -184,8 +197,7 @@ public final class JOptionPaneTransport {
         updateDriverIDComboBox(urbanCompany);
         if ("Undefined".equals(driverID)) {
             driverIDComboBox.setSelectedIndex(0);
-        }
-        else {
+        } else {
             driverIDComboBox.setSelectedIndex(findIndexByID(driverID, urbanCompany));
         }
     }
@@ -210,15 +222,14 @@ public final class JOptionPaneTransport {
     /**
      * Gets edited or not edited fields/comboBox with data and change fields of given transport
      *
-     * @param frame        frame where should JOptionPane be shown
-     * @param transport    object whose fields are should be edited
+     * @param frame        frame where JOptionPane should be shown
+     * @param transport    object whose fields should be edited
      * @param urbanCompany object to get Set of class Driver
-     * @return edited Transport object
      */
-    public Transport editTransport(JFrame frame, Transport transport, UrbanCompany urbanCompany) {
+    public void editTransport(JFrame frame, Transport transport, UrbanCompany urbanCompany) {
         int choice = JOptionPane.showConfirmDialog(null,
                 updatePanelComponentsUsingPreviousData(transport, urbanCompany),
-                "Transport creating",
+                "Transport editing",
                 JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.PLAIN_MESSAGE);
 
@@ -234,17 +245,24 @@ public final class JOptionPaneTransport {
                 JOptionPane.showMessageDialog(frame,
                         "Driver not found. Try 000000 if driver's not already exist",
                         "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (idTextField.getText().length() > 8) {
+                JOptionPane.showMessageDialog(frame,
+                        "ID is not short enough", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (idTextField.getText().length() < 8) {
+                JOptionPane.showMessageDialog(frame,
+                        "ID is not long enough", "Warning", JOptionPane.WARNING_MESSAGE);
             } else {
                 try {
                     transport.setType(typeTextField.getText());
                     transport.setId(idTextField.getText());
                     transport.setNumber(numberTextField.getText());
                 } catch (Exception ignored) {
+                    JOptionPane.showMessageDialog(frame, "The number is not correct",
+                            "Warning", JOptionPane.WARNING_MESSAGE);
                 }
                 transport.setDriver(driver);
             }
         }
         clearAll();
-        return transport;
     }
 }
