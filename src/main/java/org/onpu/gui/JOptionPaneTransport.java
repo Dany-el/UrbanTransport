@@ -18,7 +18,6 @@ public final class JOptionPaneTransport {
     private static final JTextField numberTextField = new JTextField();
     private static final JLabel driverIDLabel = new JLabel("Driver ID");
     private static final JComboBox<String> driverIDComboBox = new JComboBox<>();
-    //
 
     /**
      * @param gridy - place at y-grid
@@ -34,7 +33,6 @@ public final class JOptionPaneTransport {
 
         return gbc;
     }
-
 
     /**
      * Configuring all labels
