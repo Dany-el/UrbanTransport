@@ -196,7 +196,7 @@ public final class JOptionPaneTransport {
      * Update components
      * - Configures labels
      * - Initializes components with transport data
-     * - Panel adds components
+     * - Adds components to the panel
      *
      * @param transport    object to get data from
      * @param urbanCompany object to get Set of class Driver
