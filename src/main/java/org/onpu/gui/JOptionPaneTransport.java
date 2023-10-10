@@ -7,17 +7,17 @@ import org.onpu.entities.Transport;
 import javax.swing.*;
 import java.awt.*;
 
-public class JOptionPaneTransport {
-    private final GridBagConstraints gbc = new GridBagConstraints();
-    private final JPanel panel = new JPanel(new GridBagLayout());
-    private final JLabel typeLabel = new JLabel("Type");
-    private final JTextField typeTextField = new JTextField();
-    private final JLabel idLabel = new JLabel("Transport ID (8-digits)");
-    private final JTextField idTextField = new JTextField();
-    private final JLabel numberLabel = new JLabel("Number (e.g. AA 3787 BB)");
-    private final JTextField numberTextField = new JTextField();
-    private final JLabel driverIDLabel = new JLabel("Driver ID");
-    private final JComboBox<String> driverIDComboBox = new JComboBox<>();
+public final class JOptionPaneTransport {
+    private static final GridBagConstraints gbc = new GridBagConstraints();
+    private static final JPanel panel = new JPanel(new GridBagLayout());
+    private static final JLabel typeLabel = new JLabel("Type");
+    private static final JTextField typeTextField = new JTextField();
+    private static final JLabel idLabel = new JLabel("Transport ID (8-digits)");
+    private static final JTextField idTextField = new JTextField();
+    private static final JLabel numberLabel = new JLabel("Number (e.g. AA 3787 BB)");
+    private static final JTextField numberTextField = new JTextField();
+    private static final JLabel driverIDLabel = new JLabel("Driver ID");
+    private static final JComboBox<String> driverIDComboBox = new JComboBox<>();
     //
 
     /**
