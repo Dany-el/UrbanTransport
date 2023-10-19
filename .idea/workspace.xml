@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="added comments. added static keyword to the fields.">
+    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="moved argument to constructor">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/UrbanApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/UrbanApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="features" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,6 +40,39 @@
     &quot;assignee&quot;: &quot;Dany-el&quot;
   }
 }</component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="gui-dev" />
+                    <option name="lastUsedInstant" value="1697740454" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1697740453" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+        <option value="features" />
+      </list>
+    </option>
+  </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -61,19 +94,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;gui-dev&quot;,
-    &quot;last.edited.regexp&quot;: &quot;22:33&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build.android&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "gui-dev",
+    "last.edited.regexp": "22:33",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "vcs.Subversion.Presentation"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.onpu.gui" />
@@ -117,6 +150,9 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="" />
@@ -377,38 +413,6 @@
       <option name="project" value="LOCAL" />
       <updated>1687356547403</updated>
     </task>
-    <task id="LOCAL-00057" summary="Created new class for working with adding and editing buttons for Transport class">
-      <option name="closed" value="true" />
-      <created>1696703827424</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1696703827424</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Created new class for working with adding and editing buttons for Driver class">
-      <option name="closed" value="true" />
-      <created>1696703838257</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1696703838257</updated>
-    </task>
-    <task id="LOCAL-00059" summary="tided up code. deleted unnecessary JTextFields and changed one with JComboBox. added comments for all methods">
-      <option name="closed" value="true" />
-      <created>1696861972979</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1696861972980</updated>
-    </task>
-    <task id="LOCAL-00060" summary="saved new objects of Transport class">
-      <option name="closed" value="true" />
-      <created>1696938777628</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1696938777629</updated>
-    </task>
     <task id="LOCAL-00061" summary="saved new objects of Driver class">
       <option name="closed" value="true" />
       <created>1696938785819</created>
@@ -481,7 +485,39 @@
       <option name="project" value="LOCAL" />
       <updated>1696950980287</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="created for better readability">
+      <option name="closed" value="true" />
+      <created>1697742922783</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1697742922783</updated>
+    </task>
+    <task id="LOCAL-00071" summary="created for better readability">
+      <option name="closed" value="true" />
+      <created>1697742957207</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1697742957207</updated>
+    </task>
+    <task id="LOCAL-00072" summary="deleted unnecessary code that don't belong to the frame class">
+      <option name="closed" value="true" />
+      <created>1697742991647</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1697742991647</updated>
+    </task>
+    <task id="LOCAL-00073" summary="moved argument to constructor">
+      <option name="closed" value="true" />
+      <created>1697743078132</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1697743078132</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -534,9 +570,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed/added constructors" />
-    <MESSAGE value="added needed components and some listeners to test them" />
-    <MESSAGE value="added UrbanCompany field" />
     <MESSAGE value="added method to find by id driver" />
     <MESSAGE value="new driver(temporary)" />
     <MESSAGE value="some files changes" />
@@ -559,7 +592,10 @@
     <MESSAGE value="added list for labels to make it easy to set one setting to all labels. change some comments. added JOptionPanes for idTextFields and numberTextField" />
     <MESSAGE value="added new objects" />
     <MESSAGE value="added comments. added static keyword to the fields." />
-    <option name="LAST_COMMIT_MESSAGE" value="added comments. added static keyword to the fields." />
+    <MESSAGE value="created for better readability" />
+    <MESSAGE value="deleted unnecessary code that don't belong to the frame class" />
+    <MESSAGE value="moved argument to constructor" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved argument to constructor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
