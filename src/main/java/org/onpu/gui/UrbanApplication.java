@@ -55,8 +55,7 @@ public final class UrbanApplication extends JFrame {
     private void settingsButtonConfiguration() {
         settingsButton.addActionListener(e -> {
             if (sw == null) {
-                sw = new SettingsWindow();
-                sw.setUrbanCompany(urbanCompany);
+                sw = new SettingsWindow(urbanCompany);
                 sw.start();
             } else if (!sw.isOpened()) {
                 sw.start();
