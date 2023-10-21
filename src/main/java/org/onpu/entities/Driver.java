@@ -157,7 +157,11 @@ public class Driver extends Employee implements Comparable<Driver> {
 
     @Override
     public String toString() {
-        return super.toString() + "\nId: " + id + "\nService length: " + getLengthOfService() + "\nRoute \"" + routeName + "\"" + "\nFrom " + startOfRoute + " to " + endOfRoute;
+        return super.toString() +
+                "\nId: " + id +
+                "\nService length: " + getLengthOfService() +
+                "\nRoute \"" + routeName + "\"" +
+                "\nFrom " + startOfRoute + " to " + endOfRoute;
     }
 
     @Override
