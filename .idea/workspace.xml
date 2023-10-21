@@ -4,56 +4,133 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="new component">
+    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="removed label and changed it with new class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/MainPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/JOptionPaneDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/JOptionPaneDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/UrbanApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/UrbanApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/saves/depot.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/saves/depot.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/saves/drivers.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/saves/drivers.ser" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Dany-el&quot;
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="gui-dev" />
+                    <option name="lastUsedInstant" value="1697740454" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1697740453" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+        <option value="features" />
+      </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="953ee3e1-e03d-4ef5-859e-598888b79f28" />
+        <option name="url" value="https://github.com/Dany-el/UrbanTransport.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2MjpfeHtPU3F89zM1zVM32J59VL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last.edited.regexp&quot;: &quot;22:33&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Lombok&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "gui-dev",
+    "last.edited.regexp": "0689782508\n",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "vcs.Subversion.Presentation"
   }
-}</component>
-  <component name="RunManager" selected="Application.UrbanCompany">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.onpu.gui" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/saves" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.onpu.gui" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.onpu.Main" />
       <module name="UrbanTransport" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.onpu.*" />
+          <option name="PATTERN" value="org.onpu.entities.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -66,7 +143,7 @@
       <module name="UrbanTransport" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.onpu.*" />
+          <option name="PATTERN" value="org.onpu.entities.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -76,12 +153,15 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UrbanCompany" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.UrbanCompany" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="" />
@@ -223,29 +303,318 @@
       <option name="project" value="LOCAL" />
       <updated>1681158751346</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="new component">
+      <created>1681159686443</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1681159686443</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added comments to the methods">
+      <created>1681159700040</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1681159700040</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added todo">
+      <created>1686247420856</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1686247420856</updated>
+    </task>
+    <task id="LOCAL-00023" summary="sth changed">
+      <created>1686247465454</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1686247465454</updated>
+    </task>
+    <task id="LOCAL-00024" summary="added equals and hashCode methods, moved a bit upper">
+      <created>1687194398065</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1687194398065</updated>
+    </task>
+    <task id="LOCAL-00025" summary="added equals,hashCode and compareTo methods, moved a bit upper">
+      <created>1687194429406</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1687194429406</updated>
+    </task>
+    <task id="LOCAL-00026" summary="added equals and hashCode methods, moved a bit upper">
+      <created>1687194488871</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1687194488871</updated>
+    </task>
+    <task id="LOCAL-00027" summary="added equals,hashCode and compareTo methods, moved a bit upper">
+      <created>1687194601673</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1687194601673</updated>
+    </task>
+    <task id="LOCAL-00028" summary="wrote some comments to the code. added exceptions if start or end time does not fit in range">
+      <created>1687196013095</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1687196013095</updated>
+    </task>
+    <task id="LOCAL-00029" summary="changed list to set, optimize code reading by using streams, added comments to main methods of the class">
+      <created>1687196072586</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1687196072586</updated>
+    </task>
+    <task id="LOCAL-00030" summary="idea changes">
+      <created>1687196093921</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1687196093921</updated>
+    </task>
+    <task id="LOCAL-00031" summary="deleted todo">
+      <created>1687196292528</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1687196292528</updated>
+    </task>
+    <task id="LOCAL-00032" summary="small changes">
+      <created>1687263909864</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1687263909865</updated>
+    </task>
+    <task id="LOCAL-00033" summary="added implementation of serialization">
+      <created>1687263950027</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1687263950027</updated>
+    </task>
+    <task id="LOCAL-00034" summary="some changes">
+      <created>1687356453539</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1687356453539</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add getter for id">
+      <created>1687356471167</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1687356471167</updated>
+    </task>
+    <task id="LOCAL-00036" summary="added possibility to remove object(driver or transport) from the set by id">
+      <created>1687356547403</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1687356547403</updated>
+    </task>
+    <task id="LOCAL-00071" summary="created for better readability">
+      <option name="closed" value="true" />
+      <created>1697742957207</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1697742957207</updated>
+    </task>
+    <task id="LOCAL-00072" summary="deleted unnecessary code that don't belong to the frame class">
+      <option name="closed" value="true" />
+      <created>1697742991647</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1697742991647</updated>
+    </task>
+    <task id="LOCAL-00073" summary="moved argument to constructor">
+      <option name="closed" value="true" />
+      <created>1697743078132</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1697743078132</updated>
+    </task>
+    <task id="LOCAL-00074" summary="added annoying .idea folder">
+      <option name="closed" value="true" />
+      <created>1697743371766</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1697743371766</updated>
+    </task>
+    <task id="LOCAL-00075" summary="some changes">
+      <option name="closed" value="true" />
+      <created>1697743427365</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1697743427365</updated>
+    </task>
+    <task id="LOCAL-00076" summary="added new objects">
+      <option name="closed" value="true" />
+      <created>1697885242228</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885242228</updated>
+    </task>
+    <task id="LOCAL-00077" summary="micro changes">
+      <option name="closed" value="true" />
+      <created>1697885285649</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885285649</updated>
+    </task>
+    <task id="LOCAL-00078" summary="added full name getter and changed pattern of phone number">
+      <option name="closed" value="true" />
+      <created>1697885315547</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885315547</updated>
+    </task>
+    <task id="LOCAL-00079" summary="created class for controlling Transport and Driver swing components">
+      <option name="closed" value="true" />
+      <created>1697885372841</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885372841</updated>
+    </task>
+    <task id="LOCAL-00080" summary="class with panel which includes textfields for Driver object fields">
+      <option name="closed" value="true" />
+      <created>1697885454628</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885454628</updated>
+    </task>
+    <task id="LOCAL-00081" summary="class with panel which includes textfields for Transport object fields">
+      <option name="closed" value="true" />
+      <created>1697885466479</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885466479</updated>
+    </task>
+    <task id="LOCAL-00082" summary="sth new">
+      <option name="closed" value="true" />
+      <created>1697885480725</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885480725</updated>
+    </task>
+    <task id="LOCAL-00083" summary="removed label and changed it with new class">
+      <option name="closed" value="true" />
+      <created>1697885510643</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885510643</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/features" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/features" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First commit" />
-    <MESSAGE value="Added constructors, getters" />
-    <MESSAGE value="Testing exceptions" />
-    <MESSAGE value="Added comments" />
-    <MESSAGE value="Added methods to work with fields of Driver and Transport" />
-    <MESSAGE value="Added constructor, some accessors, override method" />
-    <MESSAGE value="Added override methods" />
-    <MESSAGE value="Create interface to show info about object" />
-    <MESSAGE value="Maven changes" />
-    <MESSAGE value="Class to work with entire project" />
-    <MESSAGE value="Added default methods and override methods" />
-    <MESSAGE value="Testing(not for long)" />
-    <MESSAGE value="Change 'String' to 'LocalTime'" />
-    <MESSAGE value="Added 5 new methods to work with 'Lists'" />
-    <MESSAGE value="a little changes" />
-    <MESSAGE value="added setter and changed argument type at copy construct" />
-    <MESSAGE value="Added construct, setters and remove/add to the list methods" />
-    <MESSAGE value="new component" />
-    <option name="LAST_COMMIT_MESSAGE" value="new component" />
+    <MESSAGE value="Created new class for working with adding and editing buttons for Transport class" />
+    <MESSAGE value="Created new class for working with adding and editing buttons for Driver class" />
+    <MESSAGE value="tided up code. deleted unnecessary JTextFields and changed one with JComboBox. added comments for all methods" />
+    <MESSAGE value="saved new objects of Transport class" />
+    <MESSAGE value="saved new objects of Driver class" />
+    <MESSAGE value="changed setter for field startOfCareer and added it to constructor" />
+    <MESSAGE value="made all fields static" />
+    <MESSAGE value="sentence changes" />
+    <MESSAGE value="deleted space" />
+    <MESSAGE value="added static keyword to the fields. made class final. added methods to make code more readable. added comments to methods. added where needed try/catches and JOptionPanes" />
+    <MESSAGE value="added list for labels to make it easy to set one setting to all labels. change some comments. added JOptionPanes for idTextFields and numberTextField" />
+    <MESSAGE value="added comments. added static keyword to the fields." />
+    <MESSAGE value="created for better readability" />
+    <MESSAGE value="deleted unnecessary code that don't belong to the frame class" />
+    <MESSAGE value="moved argument to constructor" />
+    <MESSAGE value="added annoying .idea folder" />
+    <MESSAGE value="some changes" />
+    <MESSAGE value="added new objects" />
+    <MESSAGE value="micro changes" />
+    <MESSAGE value="added full name getter and changed pattern of phone number" />
+    <MESSAGE value="created class for controlling Transport and Driver swing components" />
+    <MESSAGE value="class with panel which includes textfields for Driver object fields" />
+    <MESSAGE value="class with panel which includes textfields for Transport object fields" />
+    <MESSAGE value="sth new" />
+    <MESSAGE value="removed label and changed it with new class" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed label and changed it with new class" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.io.InvalidClassException" package="java.io" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
