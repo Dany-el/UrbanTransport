@@ -51,6 +51,10 @@ public class Person implements Printable, Serializable {
         return patronymic;
     }
 
+    public String getFullName() {
+        return name + " " + surname + " " + patronymic;
+    }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -80,7 +84,7 @@ public class Person implements Printable, Serializable {
      * @throws Exception phone number length is less or greater than 10
      */
     public void setPhoneNumber(String phoneNumber) throws Exception {
-        Pattern pattern = Pattern.compile("^\\d{10}$");
+        Pattern pattern = Pattern.compile("^(\\+38)?0\\d{9}$");
         Matcher matcher = pattern.matcher(phoneNumber);
         if (matcher.find())
             this.phoneNumber = phoneNumber;
