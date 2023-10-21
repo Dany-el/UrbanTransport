@@ -5,7 +5,6 @@ import org.onpu.entities.Driver;
 import org.onpu.entities.Transport;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 
 import static org.onpu.gui.ScrollableListPanel.defaultListModel;
@@ -16,11 +15,11 @@ public class SettingsWindowPanel extends JPanel {
     private static final JButton addButton = new JButton("+");
     private static final JButton removeButton = new JButton("－");
     private static final JButton editButton = new JButton("edit ✎");
-    private static final JLabel dataLabel = new JLabel("Data", SwingConstants.CENTER);
     private static final JButton showButton = new JButton("Show");
     private static final JOptionPaneDriver optionPaneDriver = new JOptionPaneDriver();
     private static final JOptionPaneTransport optionPaneTransport = new JOptionPaneTransport();
     private static final ScrollableListPanel scrollableListPanel = new ScrollableListPanel();
+    private static final DataPanelController dataPanelController = new DataPanelController();
     private static String selectedItemInComboBox;
     private static String selectedIdInList;
     private final UrbanCompany urbanCompany;
@@ -32,9 +31,6 @@ public class SettingsWindowPanel extends JPanel {
 
         /* Configuring list combo box */
         listComboBoxConfiguration();
-
-        /* Configuring label */
-        dataLabelConfiguration();
 
         /* Configuring buttons below the list */
         addButtonConfiguration();
@@ -60,7 +56,8 @@ public class SettingsWindowPanel extends JPanel {
         this.add(addButton);
         this.add(removeButton);
         this.add(editButton);
-        this.add(dataLabel);
+        this.add(dataPanelController.getTransportPanelComponents());
+        this.add(dataPanelController.getDriverPanelComponents());
     }
 
     /**
@@ -163,30 +160,23 @@ public class SettingsWindowPanel extends JPanel {
     private void showButtonConfiguration() {
         showButton.setBounds(250, 303, 100, 50);
         showButton.addActionListener(e -> {
-            String plainText = "";
             if ("Driver".equals(selectedItemInComboBox)) {
-                dataLabel.setText("");
                 Driver foundDriver = urbanCompany.getDriverBy(selectedIdInList);
-                plainText = foundDriver == null ? "" : foundDriver.toString();
+                if (foundDriver != null){
+                    dataPanelController.setText(foundDriver);
+                    dataPanelController.enableDriverPanel();
+                }
             } else if ("Transport".equals(selectedItemInComboBox)) {
-                dataLabel.setText("");
                 Transport foundTransport = urbanCompany.getTransportBy(selectedIdInList);
-                plainText = foundTransport == null ? "" : foundTransport.toString();
+                if (foundTransport != null){
+                    dataPanelController.setText(foundTransport);
+                    dataPanelController.enableTransportPanel();
+                }
             } else if ("Dispatcher".equals(selectedItemInComboBox)) {
-                dataLabel.setText("");
+                dataPanelController.disableAllPanels();
                 // TODO dispatcher show
             }
-            dataLabel.setText(plainTextToHTML(plainText));
         });
-    }
-
-    /**
-     * Configuration of dataLabel
-     */
-    private void dataLabelConfiguration() {
-        dataLabel.setBounds(350, 65, 300, 285);
-        dataLabel.setBorder(new LineBorder(Color.BLACK));
-        dataLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
     }
 
     /**
@@ -226,24 +216,11 @@ public class SettingsWindowPanel extends JPanel {
     }
 
     /**
-     * Reformat code to HTML format
-     *
-     * @param plainText text with '\n'
-     * @return html formatted text
-     */
-    private String plainTextToHTML(String plainText) {
-        String temp = plainText;
-        temp = temp.replaceAll("\n", "<br/>");
-        temp = "<html>" + temp + "<html/>";
-        return temp;
-    }
-
-    /**
      * Updates transportList
      */
     private void transportListUpdate() {
         defaultListModel.clear();
-        dataLabel.setText("");
+        dataPanelController.disableAllPanels();
         for (Transport t :
                 urbanCompany.getDepot()) {
             defaultListModel.addElement(t.getId());
@@ -255,7 +232,7 @@ public class SettingsWindowPanel extends JPanel {
      */
     private void driverListUpdate() {
         defaultListModel.clear();
-        dataLabel.setText("");
+        dataPanelController.disableAllPanels();
         for (Driver d :
                 urbanCompany.getGroupOfDrivers()) {
             defaultListModel.addElement(d.getId());
@@ -267,7 +244,7 @@ public class SettingsWindowPanel extends JPanel {
      */
     private void dispatcherListUpdate() {
         defaultListModel.clear();
-        dataLabel.setText("");
+        dataPanelController.disableAllPanels();
         // TODO dispatcher update
     }
 }
