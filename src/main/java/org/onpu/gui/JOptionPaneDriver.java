@@ -264,7 +264,7 @@ public final class JOptionPaneDriver {
      * @param frame frame where JOptionPane should be shown
      * @return new created Driver object if all conditions have been met
      */
-    public Driver createDriver(JFrame frame){
+    public Driver createDriver(JFrame frame) {
         int choice = JOptionPane.showConfirmDialog(null,
                 updatePanelComponents(),
                 "Driver creating",
@@ -274,16 +274,19 @@ public final class JOptionPaneDriver {
         if (choice == JOptionPane.OK_OPTION) {
             if (driverIDTextField.getText().length() > 6) {
                 JOptionPane.showMessageDialog(frame,
-                        "ID is not short enough", "Warning", JOptionPane.WARNING_MESSAGE);
+                        "The ID is not short enough", "Warning", JOptionPane.WARNING_MESSAGE);
             } else if (driverIDTextField.getText().length() < 6) {
                 JOptionPane.showMessageDialog(frame,
-                        "ID is not long enough", "Warning", JOptionPane.WARNING_MESSAGE);
+                        "The ID is not long enough", "Warning", JOptionPane.WARNING_MESSAGE);
             } else if (phoneNumberTextField.getText().length() > 10) {
                 JOptionPane.showMessageDialog(frame,
-                        "Phone number is not short enough", "Warning", JOptionPane.WARNING_MESSAGE);
+                        "The phone number is not short enough", "Warning", JOptionPane.WARNING_MESSAGE);
             } else if (phoneNumberTextField.getText().length() < 10) {
                 JOptionPane.showMessageDialog(frame,
-                        "Phone number is not long enough", "Warning", JOptionPane.WARNING_MESSAGE);
+                        "The phone number is not long enough", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (!getTimeOfStartOfRouteFromComboBox().isBefore(getTimeOfEndOfRouteFromComboBox())) {
+                JOptionPane.showMessageDialog(frame,
+                        "The start time must be earlier than the end time", "Warning", JOptionPane.WARNING_MESSAGE);
             } else {
                 try {
                     Driver d = new Driver(
@@ -378,6 +381,9 @@ public final class JOptionPaneDriver {
             } else if (phoneNumberTextField.getText().length() < 10) {
                 JOptionPane.showMessageDialog(frame,
                         "Phone number is not long enough", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (!getTimeOfStartOfRouteFromComboBox().isBefore(getTimeOfEndOfRouteFromComboBox())) {
+                JOptionPane.showMessageDialog(frame,
+                        "The start time must be earlier than the end time", "Warning", JOptionPane.WARNING_MESSAGE);
             } else {
                 driver.setName(nameTextField.getText());
                 driver.setSurname(surnameTextField.getText());
