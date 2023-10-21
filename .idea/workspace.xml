@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="some changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/DataPanelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/DriverDataPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/TransportDataPanel.java" afterDir="false" />
+    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="removed label and changed it with new class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/MainPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/SettingsWindowPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/SettingsWindowPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/JOptionPaneDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/JOptionPaneDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/UrbanApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/UrbanApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/saves/depot.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/saves/depot.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/saves/drivers.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/saves/drivers.ser" afterDir="false" />
     </list>
@@ -102,19 +100,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;gui-dev&quot;,
-    &quot;last.edited.regexp&quot;: &quot;22:33&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Subversion.Presentation&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "gui-dev",
+    "last.edited.regexp": "0689782508\n",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "vcs.Subversion.Presentation"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.onpu.gui" />
@@ -424,70 +422,6 @@
       <option name="project" value="LOCAL" />
       <updated>1687356547403</updated>
     </task>
-    <task id="LOCAL-00063" summary="made all fields static">
-      <option name="closed" value="true" />
-      <created>1696943782186</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1696943782186</updated>
-    </task>
-    <task id="LOCAL-00064" summary="sentence changes">
-      <option name="closed" value="true" />
-      <created>1696945230021</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1696945230021</updated>
-    </task>
-    <task id="LOCAL-00065" summary="deleted space">
-      <option name="closed" value="true" />
-      <created>1696945373254</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1696945373254</updated>
-    </task>
-    <task id="LOCAL-00066" summary="added static keyword to the fields. made class final. added methods to make code more readable. added comments to methods. added where needed try/catches and JOptionPanes">
-      <option name="closed" value="true" />
-      <created>1696947555052</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1696947555052</updated>
-    </task>
-    <task id="LOCAL-00067" summary="added list for labels to make it easy to set one setting to all labels. change some comments. added JOptionPanes for idTextFields and numberTextField">
-      <option name="closed" value="true" />
-      <created>1696947669218</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1696947669218</updated>
-    </task>
-    <task id="LOCAL-00068" summary="added new objects">
-      <option name="closed" value="true" />
-      <created>1696947699082</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1696947699082</updated>
-    </task>
-    <task id="LOCAL-00069" summary="added comments. added static keyword to the fields.">
-      <option name="closed" value="true" />
-      <created>1696950980287</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1696950980287</updated>
-    </task>
-    <task id="LOCAL-00070" summary="created for better readability">
-      <option name="closed" value="true" />
-      <created>1697742922783</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1697742922783</updated>
-    </task>
     <task id="LOCAL-00071" summary="created for better readability">
       <option name="closed" value="true" />
       <created>1697742957207</created>
@@ -528,7 +462,71 @@
       <option name="project" value="LOCAL" />
       <updated>1697743427365</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="added new objects">
+      <option name="closed" value="true" />
+      <created>1697885242228</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885242228</updated>
+    </task>
+    <task id="LOCAL-00077" summary="micro changes">
+      <option name="closed" value="true" />
+      <created>1697885285649</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885285649</updated>
+    </task>
+    <task id="LOCAL-00078" summary="added full name getter and changed pattern of phone number">
+      <option name="closed" value="true" />
+      <created>1697885315547</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885315547</updated>
+    </task>
+    <task id="LOCAL-00079" summary="created class for controlling Transport and Driver swing components">
+      <option name="closed" value="true" />
+      <created>1697885372841</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885372841</updated>
+    </task>
+    <task id="LOCAL-00080" summary="class with panel which includes textfields for Driver object fields">
+      <option name="closed" value="true" />
+      <created>1697885454628</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885454628</updated>
+    </task>
+    <task id="LOCAL-00081" summary="class with panel which includes textfields for Transport object fields">
+      <option name="closed" value="true" />
+      <created>1697885466479</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885466479</updated>
+    </task>
+    <task id="LOCAL-00082" summary="sth new">
+      <option name="closed" value="true" />
+      <created>1697885480725</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885480725</updated>
+    </task>
+    <task id="LOCAL-00083" summary="removed label and changed it with new class">
+      <option name="closed" value="true" />
+      <created>1697885510643</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885510643</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -581,13 +579,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="some files changes" />
-    <MESSAGE value="added getter for startOfCareer and added full-copy method" />
-    <MESSAGE value="Added 2 methods to find object via id. Changed from 6 to 8 digits transport id. Changed access modifiers for save methods" />
-    <MESSAGE value="Changed from 6 to 8-digit id. Added some getters and setter. Added full-copy method." />
-    <MESSAGE value="Added to all Components final keyword. Cleaned up code. Added actionListeners for add/remove/edit buttons. Added new button for showing data because selectedValue kinda bugged" />
-    <MESSAGE value="Changed amount of parameters that stackComponents should get" />
-    <MESSAGE value="Added annotations dependency from jetbrains" />
     <MESSAGE value="Created new class for working with adding and editing buttons for Transport class" />
     <MESSAGE value="Created new class for working with adding and editing buttons for Driver class" />
     <MESSAGE value="tided up code. deleted unnecessary JTextFields and changed one with JComboBox. added comments for all methods" />
@@ -599,14 +590,21 @@
     <MESSAGE value="deleted space" />
     <MESSAGE value="added static keyword to the fields. made class final. added methods to make code more readable. added comments to methods. added where needed try/catches and JOptionPanes" />
     <MESSAGE value="added list for labels to make it easy to set one setting to all labels. change some comments. added JOptionPanes for idTextFields and numberTextField" />
-    <MESSAGE value="added new objects" />
     <MESSAGE value="added comments. added static keyword to the fields." />
     <MESSAGE value="created for better readability" />
     <MESSAGE value="deleted unnecessary code that don't belong to the frame class" />
     <MESSAGE value="moved argument to constructor" />
     <MESSAGE value="added annoying .idea folder" />
     <MESSAGE value="some changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
+    <MESSAGE value="added new objects" />
+    <MESSAGE value="micro changes" />
+    <MESSAGE value="added full name getter and changed pattern of phone number" />
+    <MESSAGE value="created class for controlling Transport and Driver swing components" />
+    <MESSAGE value="class with panel which includes textfields for Driver object fields" />
+    <MESSAGE value="class with panel which includes textfields for Transport object fields" />
+    <MESSAGE value="sth new" />
+    <MESSAGE value="removed label and changed it with new class" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed label and changed it with new class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
