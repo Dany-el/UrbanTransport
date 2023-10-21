@@ -4,16 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="moved argument to constructor">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="some changes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/DataPanelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/DriverDataPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/TransportDataPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/SettingsWindowPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/SettingsWindowPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/saves/depot.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/saves/depot.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/saves/drivers.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/saves/drivers.ser" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="CompilerWorkspaceConfiguration">
     <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
@@ -41,6 +48,7 @@
   }
 }</component>
   <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
       <RecentBranches>
         <option name="branchesForRepo">
@@ -94,25 +102,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "gui-dev",
-    "last.edited.regexp": "22:33",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "vcs.Subversion.Presentation"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gui-dev&quot;,
+    &quot;last.edited.regexp&quot;: &quot;22:33&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Subversion.Presentation&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.onpu.gui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/saves" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.onpu.gui" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -413,22 +424,6 @@
       <option name="project" value="LOCAL" />
       <updated>1687356547403</updated>
     </task>
-    <task id="LOCAL-00061" summary="saved new objects of Driver class">
-      <option name="closed" value="true" />
-      <created>1696938785819</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1696938785824</updated>
-    </task>
-    <task id="LOCAL-00062" summary="changed setter for field startOfCareer and added it to constructor">
-      <option name="closed" value="true" />
-      <created>1696938888327</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1696938888327</updated>
-    </task>
     <task id="LOCAL-00063" summary="made all fields static">
       <option name="closed" value="true" />
       <created>1696943782186</created>
@@ -517,7 +512,23 @@
       <option name="project" value="LOCAL" />
       <updated>1697743078132</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="added annoying .idea folder">
+      <option name="closed" value="true" />
+      <created>1697743371766</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1697743371766</updated>
+    </task>
+    <task id="LOCAL-00075" summary="some changes">
+      <option name="closed" value="true" />
+      <created>1697743427365</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1697743427365</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -570,8 +581,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added method to find by id driver" />
-    <MESSAGE value="new driver(temporary)" />
     <MESSAGE value="some files changes" />
     <MESSAGE value="added getter for startOfCareer and added full-copy method" />
     <MESSAGE value="Added 2 methods to find object via id. Changed from 6 to 8 digits transport id. Changed access modifiers for save methods" />
@@ -595,7 +604,9 @@
     <MESSAGE value="created for better readability" />
     <MESSAGE value="deleted unnecessary code that don't belong to the frame class" />
     <MESSAGE value="moved argument to constructor" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved argument to constructor" />
+    <MESSAGE value="added annoying .idea folder" />
+    <MESSAGE value="some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
