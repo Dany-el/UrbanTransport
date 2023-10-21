@@ -66,11 +66,11 @@ public class Transport implements Printable, Comparable<Transport>, Serializable
     }
 
     /**
-     * @param id 6-digit id
+     * @param id 8-digit id
      * @throws Exception id length is less or greater than 6
      */
     public void setId(String id) throws Exception {
-        Pattern pattern = Pattern.compile("^\\d{6}$");
+        Pattern pattern = Pattern.compile("^\\d{8}$");
         Matcher matcher = pattern.matcher(id);
         if (matcher.find())
             this.id = id;
@@ -90,12 +90,36 @@ public class Transport implements Printable, Comparable<Transport>, Serializable
         }
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public Driver getDriver() {
         return driver;
     }
 
     public String getId() {
         return id;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getRouteName() {
+        return routeName;
+    }
+
+    public void copyFrom(Transport transport) {
+        type = transport.type;
+        number = transport.number;
+        routeName = transport.routeName;
+        id = transport.id;
+        driver.copyFrom(transport.getDriver());
     }
 
     @Override

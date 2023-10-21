@@ -22,9 +22,27 @@ public class Driver extends Employee implements Comparable<Driver> {
         id = "Undefined";
     }
 
+    public Driver(String name, String surname, String patronymic,
+                  String phoneNumber, String livingAddress,
+                  LocalDate startOfCareer,
+                  LocalTime startOfRoute, LocalTime endOfRoute,
+                  String routeName,
+                  String id) throws Exception {
+        this.setName(name);
+        this.setSurname(surname);
+        this.setPatronymic(patronymic);
+        this.setPhoneNumber(phoneNumber);
+        this.setLivingAddress(livingAddress);
+        setStartOfCareer(startOfCareer);
+        this.routeName = routeName;
+        this.startOfRoute = startOfRoute;
+        this.endOfRoute = endOfRoute;
+        setId(id);
+    }
+
     public Driver(Employee employee, LocalDate startOfCareer, LocalTime startOfRoute, LocalTime endOfRoute, String routeName, String id) throws Exception {
         super(employee);
-        this.startOfCareer = startOfCareer;
+        setStartOfCareer(startOfCareer);
         this.routeName = routeName;
         this.startOfRoute = startOfRoute;
         this.endOfRoute = endOfRoute;
@@ -88,7 +106,14 @@ public class Driver extends Employee implements Comparable<Driver> {
     }
 
     public void setStartOfCareer(LocalDate startOfCareer) {
-        this.startOfCareer = startOfCareer;
+        if (ChronoUnit.YEARS.between(startOfCareer, LocalDate.now()) > 1)
+            this.startOfCareer = startOfCareer;
+        else
+            throw new RuntimeException("The length of service is less than 1 year");
+    }
+
+    public LocalDate getStartOfCareer() {
+        return startOfCareer;
     }
 
     public LocalTime getStartOfRoute() {
@@ -114,9 +139,29 @@ public class Driver extends Employee implements Comparable<Driver> {
         return id;
     }
 
+    public void copyFrom(Driver driver) {
+        this.setName(driver.getName());
+        this.setSurname(driver.getSurname());
+        this.setPatronymic(driver.getPatronymic());
+        this.setLivingAddress(driver.getLivingAddress());
+        try {
+            this.setPhoneNumber(driver.getPhoneNumber());
+        } catch (Exception ignored) {
+        }
+        startOfCareer = driver.startOfCareer;
+        routeName = driver.routeName;
+        startOfRoute = driver.startOfRoute;
+        endOfRoute = driver.endOfRoute;
+        id = driver.id;
+    }
+
     @Override
     public String toString() {
-        return super.toString() + "\nId: " + id + "\nService length: " + getLengthOfService() + "\nRoute \"" + routeName + "\"" + "\nFrom " + startOfRoute + " to " + endOfRoute;
+        return super.toString() +
+                "\nId: " + id +
+                "\nService length: " + getLengthOfService() +
+                "\nRoute \"" + routeName + "\"" +
+                "\nFrom " + startOfRoute + " to " + endOfRoute;
     }
 
     @Override

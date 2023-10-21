@@ -4,7 +4,6 @@ import org.onpu.entities.*;
 
 import java.io.*;
 import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -88,7 +87,7 @@ public class UrbanCompany {
      * @throws Exception if id is not right written
      */
     public void removeTransportFromDepot(String id) throws Exception {
-        Pattern pattern = Pattern.compile("^\\d{6}$");
+        Pattern pattern = Pattern.compile("^\\d{8}$");
         Matcher matcher = pattern.matcher(id);
         if (matcher.find()) {
             depot = depot.stream()
@@ -143,7 +142,7 @@ public class UrbanCompany {
         }
         saveGroupOfDrivers();
     }
-    
+
     /**
      * Removes driver from the set
      *
@@ -157,7 +156,7 @@ public class UrbanCompany {
             // There are always two collections, which equal and not equal to id
             // So we get which has true(is equal) and 'fire' it
             Map<Boolean, Set<Driver>> partitionedDrivers = groupOfDrivers.stream()
-                            .collect(Collectors.partitioningBy(d -> d.getId().equals(id), Collectors.toSet()));
+                    .collect(Collectors.partitioningBy(d -> d.getId().equals(id), Collectors.toSet()));
 
             partitionedDrivers.get(true).forEach(this::fireDriver);
             groupOfDrivers = partitionedDrivers.get(false);
@@ -200,7 +199,9 @@ public class UrbanCompany {
      */
     public Driver getDriverWithGreatLengthOfService() {
         // Sorting by comparing the length of service of driver
-        return groupOfDrivers.stream().toList().get(groupOfDrivers.size() - 1);
+        return groupOfDrivers.stream()
+                .toList()
+                .get(groupOfDrivers.size() - 1);
     }
 
     /**
@@ -230,9 +231,35 @@ public class UrbanCompany {
     }
 
     /**
+     * Gets Driver object by ID
+     *
+     * @param id id to find the object
+     * @return Driver object or null if object was not found
+     */
+    public Driver getDriverBy(String id) {
+        return groupOfDrivers.stream()
+                .filter(d -> d.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
+    /**
+     * Gets Transport object by ID
+     *
+     * @param id id to find the object
+     * @return Transport object or null if object was not found
+     */
+    public Transport getTransportBy(String id) {
+        return depot.stream()
+                .filter(d -> d.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
+    /**
      * Saves Set<Transport> in depot.ser using serialization
      */
-    private void saveDepot() {
+    public void saveDepot() {
         try {
             FileOutputStream fos = new FileOutputStream("src/main/resources/saves/depot.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -241,14 +268,14 @@ public class UrbanCompany {
             fos.close();
             System.out.println("Serialized data is saved in depot.ser");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
     }
 
     /**
      * Saves Set<Driver> in drivers.ser using serialization
      */
-    private void saveGroupOfDrivers() {
+    public void saveGroupOfDrivers() {
         try {
             FileOutputStream fos = new FileOutputStream("src/main/resources/saves/drivers.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -257,14 +284,14 @@ public class UrbanCompany {
             fos.close();
             System.out.println("Serialized data is saved in drivers.ser");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
     }
 
     /**
      * Saves Dispatcher in dispatcher.ser using serialization
      */
-    private void saveDispatcher() {
+    public void saveDispatcher() {
         try {
             FileOutputStream fos = new FileOutputStream("src/main/resources/saves/dispatcher.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -273,7 +300,7 @@ public class UrbanCompany {
             fos.close();
             System.out.println("Serialized data is saved in dispatcher.ser");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
     }
 
@@ -329,64 +356,5 @@ public class UrbanCompany {
         } catch (Exception ignored) {
 
         }
-    }
-
-    /*// Temporary -------------------------------------------------------------------------------------------
-    private void printDriverInfo(Driver d) {
-        System.out.println("Full name: " + d.getSurname() + " " + d.getName() + " " + d.getPatronymic());
-        System.out.println("Route: " + d.getRouteName());
-    }
-    // -----------------------------------------------------------------------------------------------------*/
-
-    public static void main(String[] args) throws Exception {
-        UrbanCompany urbanCompany = new UrbanCompany("TransportCompany");
-
-        Person person = new Person("Lan", "Konta", "Po",
-                "8283791236", "Somewhere #1");
-
-        Employee employee = new Employee(person);
-
-        Driver driver1 = new Driver(employee, LocalDate.of(2012, 3, 9),
-                LocalTime.of(6, 30), LocalTime.of(20, 30), "West-North", "392884");
-        Driver driver2 = new Driver(employee, LocalDate.of(2006, 10, 18),
-                LocalTime.of(8, 30), LocalTime.of(19, 30), "West-center", "543562");
-
-        Transport transport1 = new Transport("Bus", "BH 7877 MV", "837463", driver1);
-        Transport transport2 = new Transport("Bus", "BH 2757 MV", "287363", driver2);
-
-        Dispatcher dispatcher = new Dispatcher(employee);
-
-        /*urbanCompany.employDispatcher(dispatcher);
-        urbanCompany.employDriver(driver1);
-        urbanCompany.employDriver(driver2);*/
-
-//        urbanCompany.fireDriver("392884");
-//        urbanCompany.fireDriver(driver1);
-
-        /*urbanCompany.addTransportToDepot(transport1);
-        urbanCompany.addTransportToDepot(transport2);*/
-//        urbanCompany.removeTransportFromDepot(transport2);
-
-
-        System.out.println(urbanCompany.getDepot());
-        System.out.println(urbanCompany.getGroupOfDrivers());
-
-//        urbanCompany.employDriver(driver1);
-
-        /*System.out.println("Average working time: " + urbanCompany.getAverageDriverWorkingTime());
-        System.out.println("Average length of service: " + urbanCompany.getAverageLengthOfService());
-        System.out.println("Driver with the greatest length of service: " + urbanCompany.getDriverWithGreatLengthOfService());
-
-        System.out.println(urbanCompany.getDriversOfSpecificRoute("north-center"));
-
-        System.out.println("\nTransports at given time: " + urbanCompany.getCountOfTransportsAtTime(LocalTime.of(7, 10)));
-*/
-        // Unemployment
-        /*urbanCompany.fireDriver(driver1);
-        System.out.println(driver1);*/
-
-        /*System.out.println(urbanCompany.getDepot());
-        System.out.println(urbanCompany.getGroupOfDrivers());
-        System.out.println(urbanCompany.getDispatcher());*/
     }
 }

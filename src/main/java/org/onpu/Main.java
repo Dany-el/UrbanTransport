@@ -1,10 +1,9 @@
 package org.onpu;
 
-
-import javax.swing.*;
+import org.onpu.gui.UrbanApplication;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
-
+    public static void main(String[] args) {
+        new UrbanApplication().start();
     }
 }

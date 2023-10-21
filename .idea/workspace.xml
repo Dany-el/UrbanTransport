@@ -4,15 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="removed label and changed it with new class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/MainPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/JOptionPaneDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/JOptionPaneDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/UrbanApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/gui/UrbanApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/saves/depot.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/saves/depot.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/saves/drivers.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/saves/drivers.ser" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true" />
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -23,33 +31,54 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="development" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="gui-dev-fx" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Dany-el"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Dany-el&quot;
   }
-}]]></component>
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="gui-dev" />
+                    <option name="lastUsedInstant" value="1697740454" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1697740453" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+        <option value="features" />
+      </list>
+    </option>
+  </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -76,21 +105,26 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "434",
-    "git-widget-placeholder": "development",
-    "last.edited.regexp": "22:33",
+    "git-widget-placeholder": "gui-dev",
+    "last.edited.regexp": "0689782508\n",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "vcs.Subversion.Presentation"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.onpu.gui" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/saves" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.onpu.gui" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.UrbanCompany">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.onpu.Main" />
       <module name="UrbanTransport" />
@@ -119,14 +153,15 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UrbanCompany" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.UrbanCompany" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="" />
@@ -387,47 +422,111 @@
       <option name="project" value="LOCAL" />
       <updated>1687356547403</updated>
     </task>
-    <task id="LOCAL-00037" summary="updated files">
+    <task id="LOCAL-00071" summary="created for better readability">
       <option name="closed" value="true" />
-      <created>1696276200442</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
+      <created>1697742957207</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
       <option name="project" value="LOCAL" />
-      <updated>1696276200442</updated>
+      <updated>1697742957207</updated>
     </task>
-    <task id="LOCAL-00038" summary="added statement to check if driver is not the same">
+    <task id="LOCAL-00072" summary="deleted unnecessary code that don't belong to the frame class">
       <option name="closed" value="true" />
-      <created>1696276294207</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
+      <created>1697742991647</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
       <option name="project" value="LOCAL" />
-      <updated>1696276294207</updated>
+      <updated>1697742991647</updated>
     </task>
-    <task id="LOCAL-00039" summary="added private method to remove driver from transport, shortened code of fireDriver method, changed file path in fileStreams">
+    <task id="LOCAL-00073" summary="moved argument to constructor">
       <option name="closed" value="true" />
-      <created>1696276474986</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
+      <created>1697743078132</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
       <option name="project" value="LOCAL" />
-      <updated>1696276474986</updated>
+      <updated>1697743078132</updated>
     </task>
-    <task id="LOCAL-00040" summary="changed a bit of code and moved some classes to entities package">
+    <task id="LOCAL-00074" summary="added annoying .idea folder">
       <option name="closed" value="true" />
-      <created>1696278060230</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
+      <created>1697743371766</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
       <option name="project" value="LOCAL" />
-      <updated>1696278060230</updated>
+      <updated>1697743371766</updated>
     </task>
-    <task id="LOCAL-00041" summary="some changes">
+    <task id="LOCAL-00075" summary="some changes">
       <option name="closed" value="true" />
-      <created>1696278072119</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
+      <created>1697743427365</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
       <option name="project" value="LOCAL" />
-      <updated>1696278072119</updated>
+      <updated>1697743427365</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00076" summary="added new objects">
+      <option name="closed" value="true" />
+      <created>1697885242228</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885242228</updated>
+    </task>
+    <task id="LOCAL-00077" summary="micro changes">
+      <option name="closed" value="true" />
+      <created>1697885285649</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885285649</updated>
+    </task>
+    <task id="LOCAL-00078" summary="added full name getter and changed pattern of phone number">
+      <option name="closed" value="true" />
+      <created>1697885315547</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885315547</updated>
+    </task>
+    <task id="LOCAL-00079" summary="created class for controlling Transport and Driver swing components">
+      <option name="closed" value="true" />
+      <created>1697885372841</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885372841</updated>
+    </task>
+    <task id="LOCAL-00080" summary="class with panel which includes textfields for Driver object fields">
+      <option name="closed" value="true" />
+      <created>1697885454628</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885454628</updated>
+    </task>
+    <task id="LOCAL-00081" summary="class with panel which includes textfields for Transport object fields">
+      <option name="closed" value="true" />
+      <created>1697885466479</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885466479</updated>
+    </task>
+    <task id="LOCAL-00082" summary="sth new">
+      <option name="closed" value="true" />
+      <created>1697885480725</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885480725</updated>
+    </task>
+    <task id="LOCAL-00083" summary="removed label and changed it with new class">
+      <option name="closed" value="true" />
+      <created>1697885510643</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1697885510643</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -480,32 +579,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Testing(not for long)" />
-    <MESSAGE value="Change 'String' to 'LocalTime'" />
-    <MESSAGE value="Added 5 new methods to work with 'Lists'" />
-    <MESSAGE value="a little changes" />
-    <MESSAGE value="added setter and changed argument type at copy construct" />
-    <MESSAGE value="Added construct, setters and remove/add to the list methods" />
-    <MESSAGE value="new component" />
-    <MESSAGE value="Added comments to the methods" />
-    <MESSAGE value="added todo" />
-    <MESSAGE value="sth changed" />
-    <MESSAGE value="added equals and hashCode methods, moved a bit upper" />
-    <MESSAGE value="added equals,hashCode and compareTo methods, moved a bit upper" />
-    <MESSAGE value="wrote some comments to the code. added exceptions if start or end time does not fit in range" />
-    <MESSAGE value="changed list to set, optimize code reading by using streams, added comments to main methods of the class" />
-    <MESSAGE value="idea changes" />
-    <MESSAGE value="deleted todo" />
-    <MESSAGE value="small changes" />
-    <MESSAGE value="added implementation of serialization" />
-    <MESSAGE value="add getter for id" />
-    <MESSAGE value="added possibility to remove object(driver or transport) from the set by id" />
-    <MESSAGE value="updated files" />
-    <MESSAGE value="added statement to check if driver is not the same" />
-    <MESSAGE value="added private method to remove driver from transport, shortened code of fireDriver method, changed file path in fileStreams" />
-    <MESSAGE value="changed a bit of code and moved some classes to entities package" />
+    <MESSAGE value="Created new class for working with adding and editing buttons for Transport class" />
+    <MESSAGE value="Created new class for working with adding and editing buttons for Driver class" />
+    <MESSAGE value="tided up code. deleted unnecessary JTextFields and changed one with JComboBox. added comments for all methods" />
+    <MESSAGE value="saved new objects of Transport class" />
+    <MESSAGE value="saved new objects of Driver class" />
+    <MESSAGE value="changed setter for field startOfCareer and added it to constructor" />
+    <MESSAGE value="made all fields static" />
+    <MESSAGE value="sentence changes" />
+    <MESSAGE value="deleted space" />
+    <MESSAGE value="added static keyword to the fields. made class final. added methods to make code more readable. added comments to methods. added where needed try/catches and JOptionPanes" />
+    <MESSAGE value="added list for labels to make it easy to set one setting to all labels. change some comments. added JOptionPanes for idTextFields and numberTextField" />
+    <MESSAGE value="added comments. added static keyword to the fields." />
+    <MESSAGE value="created for better readability" />
+    <MESSAGE value="deleted unnecessary code that don't belong to the frame class" />
+    <MESSAGE value="moved argument to constructor" />
+    <MESSAGE value="added annoying .idea folder" />
     <MESSAGE value="some changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
+    <MESSAGE value="added new objects" />
+    <MESSAGE value="micro changes" />
+    <MESSAGE value="added full name getter and changed pattern of phone number" />
+    <MESSAGE value="created class for controlling Transport and Driver swing components" />
+    <MESSAGE value="class with panel which includes textfields for Driver object fields" />
+    <MESSAGE value="class with panel which includes textfields for Transport object fields" />
+    <MESSAGE value="sth new" />
+    <MESSAGE value="removed label and changed it with new class" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed label and changed it with new class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
