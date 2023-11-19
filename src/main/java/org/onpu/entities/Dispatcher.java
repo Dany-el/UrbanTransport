@@ -2,105 +2,70 @@ package org.onpu.entities;
 
 import java.time.LocalTime;
 
-public class Dispatcher extends Employee {
-
-    public Dispatcher(Employee employee) {
-        super(employee);
+public class Dispatcher {
+    /**
+     * Returns changed Driver object route name
+     *
+     * @param driver object to change
+     * @param route  new route name
+     * @return changed Driver object route name
+     * @throws NullPointerException if one of the arguments is null
+     */
+    public Driver changeRoute(Driver driver, String route) throws NullPointerException {
+        if (driver != null && route != null) {
+            driver.setRouteName(route);
+        } else {
+            throw new NullPointerException("Argument is null");
+        }
+        return driver;
     }
 
     /**
-     * Changes route name of transport, driver is connected to transport, so driver's route is changed too
+     * Returns changed Driver object start time
      *
-     * @param transport transport which has driver
-     * @param routeName route name
-     * @return object with changed route name. null if object is null
+     * @param driver object to change
+     * @param startTime new start time
+     * @return changed Driver object start time
+     * @throws NullPointerException if first argument is null
      */
-    public Transport changeRouteName(Transport transport, String routeName) {
-        if (transport.getDriver() != null) {
-            Transport copy = new Transport(transport);
-            copy.setRouteName(routeName);
-            return copy;
+    public Driver changeRouteStartTime(Driver driver, LocalTime startTime) throws NullPointerException {
+        if (driver != null) {
+            driver.setStartOfRoute(startTime);
+        } else {
+            throw new NullPointerException("Argument of type Driver is null");
         }
-        return null;
+        return driver;
     }
 
     /**
-     * Returns an object with changed name of the route
+     * Returns changed Driver object end time
      *
-     * @param driver    driver which will have changed name of the route
-     * @param routeName new route name
-     * @return an object with changed name of the route
+     * @param driver object to change
+     * @param endTime new end time
+     * @return
+     * @throws NullPointerException
      */
-    public Driver changeRouteName(Driver driver, String routeName) {
-        if (driver == null) {
-            return null;
+    public Driver changeRouteEndTime(Driver driver, LocalTime endTime) throws NullPointerException {
+        if (driver != null) {
+            driver.setEndOfRoute(endTime);
+        } else {
+            throw new NullPointerException("Argument of type Driver is null");
         }
-        Driver copy = new Driver(driver);
-        copy.setRouteName(routeName);
-        return copy;
+        return driver;
     }
 
     /**
-     * Returns an object with changed start time of the route
-     *
-     * @param driver       driver which will have new start time of the route
-     * @param startOfRoute new time of starting of the route
-     * @return an object with changed start time of the route
-     * @throws Exception if start time is greater than start time
+     * @param transport
+     * @param driver
+     * @return
      */
-    public Driver changeStartOfRoute(Driver driver, LocalTime startOfRoute) throws Exception {
-        if (driver == null) {
-            return null;
+    public Transport changeDriver(Transport transport, Driver driver) {
+        if (driver != null && transport != null) {
+            if (transport.getDriver() != driver)
+                transport.setDriver(driver);
+        } else {
+            throw new NullPointerException("Argument is null");
         }
-        if (startOfRoute.isAfter(driver.getEndOfRoute()))
-            throw new Exception("Start time should be lower than end time");
-        Driver copy = new Driver(driver);
-        copy.setStartOfRoute(startOfRoute);
-        return copy;
-    }
-
-    /**
-     * Returns an object with changed end time of the route
-     *
-     * @param driver     driver which will have new end time of the route
-     * @param endOfRoute new end time of the route
-     * @return an object with changed end time of the route
-     * @throws Exception if end time is lower than start time
-     */
-    public Driver changeEndOfRoute(Driver driver, LocalTime endOfRoute) throws Exception {
-        if (driver == null) {
-            return null;
-        }
-        if (endOfRoute.isBefore(driver.getStartOfRoute()))
-            throw new Exception("End time should be greater than start time");
-        Driver copy = new Driver(driver);
-        copy.setEndOfRoute(endOfRoute);
-        return copy;
-    }
-
-    /**
-     * Returns an object with changed time range of the route
-     *
-     * @param driver       driver which will have new range of the time
-     * @param startOfRoute new start time of the route
-     * @param endOfRoute   new end time of the route
-     * @return an object with changed time range of the route
-     * @throws Exception if start time is greater than end time
-     */
-    public Driver changeTimeRangeOfRoute(Driver driver, LocalTime startOfRoute, LocalTime endOfRoute) throws Exception {
-        if (driver == null) {
-            return null;
-        }
-        if (startOfRoute.isAfter(endOfRoute))
-            throw new Exception("Start time should be lower than end time");
-        Driver copy = new Driver(driver);
-        copy.setStartOfRoute(startOfRoute);
-        copy.setEndOfRoute(endOfRoute);
-        return copy;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
+        return transport;
     }
 }

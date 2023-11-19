@@ -4,22 +4,22 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class Driver extends Employee implements Comparable<Driver> {
-    private LocalDate startOfCareer;
-    private LocalTime startOfRoute;
-    private LocalTime endOfRoute;
+/**
+ * Class that represents driver
+ *
+ * @author Daniel Yablonskyi
+ * @version 1.0
+ */
+public class Driver extends Employee {
+    private LocalDate startOfCareer = LocalDate.now();
+    private LocalTime startOfRoute = LocalTime.MIN;
+    private LocalTime endOfRoute = LocalTime.MAX;
     private String routeName;
-    private String id;
 
     public Driver() {
-        startOfCareer = null;
-        startOfRoute = null;
-        endOfRoute = null;
+        super();
         routeName = "Undefined";
-        id = "Undefined";
     }
 
     public Driver(String name, String surname, String patronymic,
@@ -27,85 +27,85 @@ public class Driver extends Employee implements Comparable<Driver> {
                   LocalDate startOfCareer,
                   LocalTime startOfRoute, LocalTime endOfRoute,
                   String routeName,
-                  String id) throws Exception {
-        this.setName(name);
-        this.setSurname(surname);
-        this.setPatronymic(patronymic);
-        this.setPhoneNumber(phoneNumber);
-        this.setLivingAddress(livingAddress);
+                  String id) throws RuntimeException {
+        super(name, surname, patronymic, phoneNumber, livingAddress, id);
         setStartOfCareer(startOfCareer);
         this.routeName = routeName;
-        this.startOfRoute = startOfRoute;
-        this.endOfRoute = endOfRoute;
+        setStartOfRoute(startOfRoute);
+        setEndOfRoute(endOfRoute);
         setId(id);
     }
 
-    public Driver(Employee employee, LocalDate startOfCareer, LocalTime startOfRoute, LocalTime endOfRoute, String routeName, String id) throws Exception {
+    public Driver(Employee employee,
+                  LocalDate startOfCareer, LocalTime startOfRoute,
+                  LocalTime endOfRoute, String routeName, String id) throws RuntimeException {
         super(employee);
         setStartOfCareer(startOfCareer);
         this.routeName = routeName;
-        this.startOfRoute = startOfRoute;
-        this.endOfRoute = endOfRoute;
+        setStartOfRoute(startOfRoute);
+        setEndOfRoute(endOfRoute);
         setId(id);
     }
 
     public Driver(Driver driver) {
         super(driver);
-        startOfCareer = driver.startOfCareer;
-        routeName = driver.routeName;
-        startOfRoute = driver.startOfRoute;
-        endOfRoute = driver.endOfRoute;
-        id = driver.id;
+        if (driver != null) {
+            routeName = driver.routeName;
+            startOfCareer = driver.startOfCareer;
+            startOfRoute = driver.startOfRoute;
+            endOfRoute = driver.endOfRoute;
+        }
     }
 
     /**
-     * @param id 6-digit id
-     * @throws Exception id length is less or greater than 6
-     */
-    public void setId(String id) throws Exception {
-        Pattern pattern = Pattern.compile("^\\d{6}$");
-        Matcher matcher = pattern.matcher(id);
-        if (matcher.find()) this.id = id;
-        else throw new Exception("Invalid id");
-    }
-
-    /**
-     * Sets the time of starting the route
+     * Sets the time of the start time
      *
      * @param startOfRoute 24-time format
+     * @throws RuntimeException if start time is not before end time
+     * @throws NullPointerException argument is null
      */
-    public void setStartOfRoute(LocalTime startOfRoute) {
-        this.startOfRoute = startOfRoute;
+    public void setStartOfRoute(LocalTime startOfRoute) throws RuntimeException{
+        if (startOfRoute != null) {
+            if (startOfRoute.isBefore(endOfRoute)) {
+                this.startOfRoute = startOfRoute;
+            } else {
+                throw new RuntimeException("Start time is not before end time");
+            }
+        } else {
+            throw new NullPointerException("Argument type of LocalTime is null");
+        }
     }
 
     /**
-     * Sets the time of starting the route
-     */
-    public void setStartOfRoute(int hour, int minute) {
-        startOfRoute = LocalTime.of(hour, minute);
-    }
-
-    /**
-     * Sets the time of ending the route
+     * Sets the time of the end time
      *
      * @param endOfRoute 24-time format
+     * @throws RuntimeException if end time is not after start time
+     * @throws NullPointerException argument is null
      */
-    public void setEndOfRoute(LocalTime endOfRoute) {
-        this.endOfRoute = endOfRoute;
-    }
-
-    /**
-     * Sets the time of ending the route
-     */
-    public void setEndOfRoute(int hour, int minute) {
-        endOfRoute = LocalTime.of(hour, minute);
+    public void setEndOfRoute(LocalTime endOfRoute) throws RuntimeException{
+        if (endOfRoute != null) {
+            if (endOfRoute.isAfter(startOfRoute)) {
+                this.endOfRoute = endOfRoute;
+            } else {
+                throw new RuntimeException("End time is not after start time");
+            }
+        } else {
+            throw new NullPointerException("Argument type of LocalTime is null");
+        }
     }
 
     public void setRouteName(String routeName) {
         this.routeName = routeName;
     }
 
-    public void setStartOfCareer(LocalDate startOfCareer) {
+    /**
+     * Sets the career start date
+     *
+     * @param startOfCareer date that is more than 1 year apart from today's date
+     * @throws RuntimeException if the length of service is less than 1 year
+     */
+    public void setStartOfCareer(LocalDate startOfCareer) throws RuntimeException {
         if (ChronoUnit.YEARS.between(startOfCareer, LocalDate.now()) > 1)
             this.startOfCareer = startOfCareer;
         else
@@ -125,7 +125,9 @@ public class Driver extends Employee implements Comparable<Driver> {
     }
 
     /**
-     * @return The length of service in years
+     * Returns the length of service in years
+     *
+     * @return the length of service in years
      */
     public long getLengthOfService() {
         return ChronoUnit.YEARS.between(startOfCareer, LocalDate.now());
@@ -135,55 +137,20 @@ public class Driver extends Employee implements Comparable<Driver> {
         return routeName;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void copyFrom(Driver driver) {
-        this.setName(driver.getName());
-        this.setSurname(driver.getSurname());
-        this.setPatronymic(driver.getPatronymic());
-        this.setLivingAddress(driver.getLivingAddress());
-        try {
-            this.setPhoneNumber(driver.getPhoneNumber());
-        } catch (Exception ignored) {
-        }
-        startOfCareer = driver.startOfCareer;
-        routeName = driver.routeName;
-        startOfRoute = driver.startOfRoute;
-        endOfRoute = driver.endOfRoute;
-        id = driver.id;
-    }
-
     @Override
-    public String toString() {
-        return super.toString() +
-                "\nId: " + id +
-                "\nService length: " + getLengthOfService() +
-                "\nRoute \"" + routeName + "\"" +
-                "\nFrom " + startOfRoute + " to " + endOfRoute;
-    }
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        if (!super.equals(object)) return false;
 
-    @Override
-    public int compareTo(Driver o) {
-        return Long.compare(getLengthOfService(), o.getLengthOfService());
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        Driver driver = (Driver) o;
+        Driver driver = (Driver) object;
 
         if (!Objects.equals(startOfCareer, driver.startOfCareer))
             return false;
         if (!Objects.equals(startOfRoute, driver.startOfRoute))
             return false;
         if (!Objects.equals(endOfRoute, driver.endOfRoute)) return false;
-        if (!Objects.equals(routeName, driver.routeName)) return false;
-        return Objects.equals(id, driver.id);
+        return Objects.equals(routeName, driver.routeName);
     }
 
     @Override
@@ -193,7 +160,6 @@ public class Driver extends Employee implements Comparable<Driver> {
         result = 31 * result + (startOfRoute != null ? startOfRoute.hashCode() : 0);
         result = 31 * result + (endOfRoute != null ? endOfRoute.hashCode() : 0);
         result = 31 * result + (routeName != null ? routeName.hashCode() : 0);
-        result = 31 * result + (id != null ? id.hashCode() : 0);
         return result;
     }
 }
