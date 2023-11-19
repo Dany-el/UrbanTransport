@@ -1,9 +1,9 @@
 package org.onpu;
 
-import org.onpu.gui.UrbanApplication;
+import org.onpu.ui.graphics.main.MainFrame;
 
 public class Main {
     public static void main(String[] args) {
-        new UrbanApplication().start();
+        MainFrame.drawFrame();
     }
 }

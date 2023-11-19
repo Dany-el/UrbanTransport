@@ -1,13 +1,17 @@
 package org.onpu.entities;
 
-import org.onpu.Printable;
-
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Person implements Printable, Serializable {
+/**
+ * Class that represents person
+ *
+ * @author Daniel Yablonskyi
+ * @version 1.0
+ */
+public abstract class Person implements Serializable {
     private String name;
     private String surname;
     private String patronymic;
@@ -23,20 +27,18 @@ public class Person implements Printable, Serializable {
     }
 
     public Person(String name, String surname, String patronymic,
-                  String phoneNumber, String livingAddress) throws Exception {
-        this.name = name;
-        this.surname = surname;
-        this.patronymic = patronymic;
+                  String phoneNumber, String livingAddress) throws RuntimeException {
+        setFullName(name, surname, patronymic);
         setPhoneNumber(phoneNumber);
         this.livingAddress = livingAddress;
     }
 
     public Person(Person obj) {
-        name = obj.name;
-        surname = obj.surname;
-        patronymic = obj.patronymic;
-        phoneNumber = obj.phoneNumber;
-        livingAddress = obj.livingAddress;
+        if (obj != null) {
+            setFullName(obj.name, obj.surname, obj.patronymic);
+            phoneNumber = obj.phoneNumber;
+            livingAddress = obj.livingAddress;
+        }
     }
 
     public String getName() {
@@ -75,30 +77,37 @@ public class Person implements Printable, Serializable {
         this.patronymic = patronymic;
     }
 
+    public void setFullName(String name, String surname, String patronymic) {
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+    }
+
     public void setLivingAddress(String livingAddress) {
         this.livingAddress = livingAddress;
     }
 
     /**
-     * @param phoneNumber 10-digit phone number
-     * @throws Exception phone number length is less or greater than 10
+     * Sets the phone number. The phone number must be such as +380... or 0...
+     *
+     * @param phoneNumber the phone number to set
+     * @throws RuntimeException if the phone number has not been matched the pattern
      */
-    public void setPhoneNumber(String phoneNumber) throws Exception {
+    public void setPhoneNumber(String phoneNumber) throws RuntimeException {
         Pattern pattern = Pattern.compile("^(\\+38)?0\\d{9}$");
         Matcher matcher = pattern.matcher(phoneNumber);
         if (matcher.find())
             this.phoneNumber = phoneNumber;
         else
-            throw new Exception("Invalid phone number");
+            throw new RuntimeException("Invalid phone number");
     }
 
-
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
 
-        Person person = (Person) o;
+        Person person = (Person) object;
 
         if (!Objects.equals(name, person.name)) return false;
         if (!Objects.equals(surname, person.surname)) return false;
@@ -115,19 +124,5 @@ public class Person implements Printable, Serializable {
         result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
         result = 31 * result + (livingAddress != null ? livingAddress.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public void printInfo() {
-        System.out.println(this);
-    }
-
-    @Override
-    public String toString() {
-        return "\nName      : " + name +
-                "\nSurname   : " + surname +
-                "\nPatronymic: " + patronymic +
-                "\nAddress   : " + livingAddress +
-                "\nPhone number: " + phoneNumber;
     }
 }
