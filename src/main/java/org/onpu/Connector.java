@@ -7,7 +7,7 @@ import org.onpu.entities.UrbanCompany;
 import java.util.List;
 
 public final class Connector {
-    private static UrbanCompany urbanCompany = new UrbanCompany("Urban Corp.");
+    private static UrbanCompany urbanCompany;
 
     public static UrbanCompany getUrbanCompany() {
         return urbanCompany;
@@ -19,5 +19,10 @@ public final class Connector {
 
     public static List<Transport> getTransportList() {
         return urbanCompany.getTransportController().getTransportsList();
+    }
+
+    public static void initUrbanCompany(){
+        if (urbanCompany == null)
+            urbanCompany = new UrbanCompany("Urban Corp");
     }
 }
