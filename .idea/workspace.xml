@@ -9,40 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="removed label and changed it with new class">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Connector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/controllers/DriverController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/controllers/TransportController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/TransportType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/serialization/FileSerialization.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/ui/action_listener/ButtonActionListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/ui/create/CreateObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/ui/edit/EditObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/ui/graphics/main/MainFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/ui/graphics/pane_factory/GridLayoutFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/onpu/ui/show/ShowObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="af984911-26e3-4c7b-b0de-63955163de72" name="Changes" comment="Some changes">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Connector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/Printable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/UrbanCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/UrbanCompany.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Dispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Transport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/Transport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/DataPanelController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/DriverDataPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/JOptionPaneDriver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/JOptionPaneTransport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/ui/graphics/main/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/ScrollableListPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/SettingsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/ui/graphics/settings/SettingsWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/SettingsWindowPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/ui/graphics/settings/SettingsWindowPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/TransportDataPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/gui/UrbanApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/saves/depot.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/saves/dispatcher.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/saves/drivers.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/entities/UrbanCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/entities/UrbanCompany.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/onpu/ui/action_listener/ButtonActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/onpu/ui/action_listener/ButtonActionListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,20 +105,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "gui-dev",
-    "last.edited.regexp": "",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.22068965",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.excludes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gui-dev&quot;,
+    &quot;last.edited.regexp&quot;: &quot;&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.22068965&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.excludes&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.onpu.gui" />
@@ -465,22 +436,6 @@
       <option name="project" value="LOCAL" />
       <updated>1687356547403</updated>
     </task>
-    <task id="LOCAL-00071" summary="created for better readability">
-      <option name="closed" value="true" />
-      <created>1697742957207</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1697742957207</updated>
-    </task>
-    <task id="LOCAL-00072" summary="deleted unnecessary code that don't belong to the frame class">
-      <option name="closed" value="true" />
-      <created>1697742991647</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1697742991647</updated>
-    </task>
     <task id="LOCAL-00073" summary="moved argument to constructor">
       <option name="closed" value="true" />
       <created>1697743078132</created>
@@ -569,7 +524,23 @@
       <option name="project" value="LOCAL" />
       <updated>1697885510643</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="updated project">
+      <option name="closed" value="true" />
+      <created>1700424301952</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1700424301952</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Some changes">
+      <option name="closed" value="true" />
+      <created>1700491077569</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1700491077570</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -622,8 +593,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Created new class for working with adding and editing buttons for Transport class" />
-    <MESSAGE value="Created new class for working with adding and editing buttons for Driver class" />
     <MESSAGE value="tided up code. deleted unnecessary JTextFields and changed one with JComboBox. added comments for all methods" />
     <MESSAGE value="saved new objects of Transport class" />
     <MESSAGE value="saved new objects of Driver class" />
@@ -647,7 +616,9 @@
     <MESSAGE value="class with panel which includes textfields for Transport object fields" />
     <MESSAGE value="sth new" />
     <MESSAGE value="removed label and changed it with new class" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed label and changed it with new class" />
+    <MESSAGE value="updated project" />
+    <MESSAGE value="Some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

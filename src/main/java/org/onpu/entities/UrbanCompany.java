@@ -5,9 +5,8 @@ import org.onpu.controllers.TransportController;
 
 import java.time.Duration;
 import java.time.LocalTime;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class UrbanCompany {
@@ -59,9 +58,9 @@ public class UrbanCompany {
     }
 
     /**
-     * Returns an average of drivers' length of service
+     * Returns the average length of service of the drivers
      *
-     * @return average of drivers' length of service, 0 - if set is empty
+     * @return Returns the average length of service of the drivers, 0 - if set is empty
      */
     public double getAverageLengthOfService() {
         return driverController.getDriversList().stream()
@@ -77,15 +76,15 @@ public class UrbanCompany {
      */
     public Driver getDriverWithGreatLengthOfService() {
         return driverController.getDriversList().stream()
-                .max(Driver::compareTo)
+                .max(Comparator.comparingLong(Driver::getLengthOfService))
                 .get();
     }
 
     /**
-     * Returns a list of drivers of the given route
+     * Returns a list of drivers
      *
      * @param r route
-     * @return a list of drivers of the given route
+     * @return a list of drivers
      */
     public List<Driver> getDriversOfSpecificRoute(String r) {
         return driverController.getDriversList().stream()
@@ -101,9 +100,15 @@ public class UrbanCompany {
      */
     public long getCountOfTransportsAtTime(LocalTime time) {
         return transportController.getTransportsList().stream()
-                .filter(t ->
-                        time.isAfter(t.getDriver().getStartOfRoute()) &&
-                                time.isBefore(t.getDriver().getEndOfRoute()))
+                .filter(t -> {
+                            Driver d = t.getDriver();
+                            if (d != null) {
+                                System.out.println(d.getStartOfRoute() + " to " + d.getEndOfRoute());
+                                return time.isAfter(d.getStartOfRoute()) && time.isBefore(d.getEndOfRoute());
+                            }
+                            return false;
+                        }
+                )
                 .count();
     }
 }

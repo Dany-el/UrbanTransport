@@ -78,6 +78,7 @@ public final class ButtonActionListener {
                         Driver d = Connector.getUrbanCompany().getDriverController().getById(selectedId);
                         if (d != null) {
                             EditObject.edit(d, Connector.getUrbanCompany().getTransportController());
+                            Connector.getUrbanCompany().getDriverController().updateSerializedFile();
                         }
                         break;
                     case "Transport":
@@ -88,6 +89,7 @@ public final class ButtonActionListener {
                                     Connector.getUrbanCompany().getDriverController(),
                                     Connector.getUrbanCompany().getTransportController()
                             );
+                            Connector.getUrbanCompany().getTransportController().updateSerializedFile();
                         }
                         break;
                     default:
@@ -160,13 +162,16 @@ public final class ButtonActionListener {
                 List<Driver> listOfDrivers = Connector.getUrbanCompany().getDriverController().getDriversList();
                 mainLabel.setText("Count: " + listOfDrivers.size());
                 if (!listOfDrivers.isEmpty()) {
-                    String listOfDriversID = "";
+                    DefaultListModel<String> defaultListModel = new DefaultListModel<>();
+                    JList<String> idList = new JList<>(defaultListModel);
+                    JScrollPane scrollPane = new JScrollPane(idList);
+
                     for (Driver d :
                             listOfDrivers) {
-                        listOfDriversID += "#" + d.getId() + "\n";
+                        defaultListModel.addElement(d.getId());
                     }
-                    JOptionPane.showMessageDialog(panel, listOfDriversID,
-                            "IDs", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showConfirmDialog(panel, scrollPane,
+                            "IDs", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
                 }
             };
         }
@@ -216,16 +221,19 @@ public final class ButtonActionListener {
             return e -> {
                 String routeName = JOptionPane.showInputDialog(panel, "Route name");
                 if (routeName != null) {
-                    java.util.List<Driver> listOfDrivers = Connector.getUrbanCompany().getDriversOfSpecificRoute(routeName);
+                    List<Driver> listOfDrivers = Connector.getUrbanCompany().getDriversOfSpecificRoute(routeName);
                     if (!listOfDrivers.isEmpty()) {
                         mainLabel.setText("Count: " + listOfDrivers.size());
-                        String listOfDriversID = "";
+                        DefaultListModel<String> defaultListModel = new DefaultListModel<>();
+                        JList<String> idList = new JList<>(defaultListModel);
+                        JScrollPane scrollPane = new JScrollPane(idList);
+
                         for (Driver d :
                                 listOfDrivers) {
-                            listOfDriversID += "#" + d.getId() + "\n";
+                            defaultListModel.addElement(d.getId());
                         }
-                        JOptionPane.showMessageDialog(panel, listOfDriversID,
-                                "IDs", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showConfirmDialog(panel, scrollPane,
+                                "IDs", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
                     } else {
                         JOptionPane.showMessageDialog(panel, "Not found",
                                 "Warning", JOptionPane.WARNING_MESSAGE);
@@ -236,14 +244,14 @@ public final class ButtonActionListener {
 
         public static ActionListener getCountOfTransportsAtTimeActionListener(JLabel mainLabel) {
             return e -> {
-                JComboBox<String> hourComboBox = new JComboBox<>();
-                for (int i = 1; i <= 23; i++) {
-                    hourComboBox.addItem("" + i);
+                JComboBox<Integer> hourComboBox = new JComboBox<>();
+                for (int i = 0; i <= 23; i++) {
+                    hourComboBox.addItem(i);
                 }
 
-                JComboBox<String> minutesComboBox = new JComboBox<>();
+                JComboBox<Integer> minutesComboBox = new JComboBox<>();
                 for (int i = 0; i < 60; i++) {
-                    minutesComboBox.addItem("" + i);
+                    minutesComboBox.addItem(i);
                 }
 
                 JPanel timePane = new JPanel(new GridLayout(0, 2));
@@ -257,8 +265,8 @@ public final class ButtonActionListener {
                         JOptionPane.PLAIN_MESSAGE);
 
                 if (choice == JOptionPane.OK_OPTION) {
-                    int hours = Integer.parseInt(hourComboBox.getItemAt(hourComboBox.getSelectedIndex()));
-                    int minutes = Integer.parseInt(minutesComboBox.getItemAt(minutesComboBox.getSelectedIndex()));
+                    int hours = hourComboBox.getItemAt(hourComboBox.getSelectedIndex());
+                    int minutes = minutesComboBox.getItemAt(minutesComboBox.getSelectedIndex());
                     long count = Connector.getUrbanCompany().getCountOfTransportsAtTime(LocalTime.of(hours, minutes));
                     mainLabel.setText("Count: " + count);
                 }
