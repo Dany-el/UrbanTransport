@@ -6,9 +6,10 @@ import org.onpu.serialization.FileSerialization;
 
 import java.time.LocalTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public final class DriverController implements FileSerialization {
-    private final Set<Driver> drivers;
+    private Set<Driver> drivers;
     private final TransportController transportController;
 
     public DriverController(TransportController tc) {
@@ -86,7 +87,11 @@ public final class DriverController implements FileSerialization {
         if (d == null) {
             throw new NullPointerException("Driver was not found");
         }
-        drivers.remove(d);
+
+        Map<String, Driver> driverMap = drivers.stream()
+                .collect(Collectors.toMap(Driver::getId, driver -> driver));
+        driverMap.remove(d.getId());
+        drivers = new HashSet<>(driverMap.values());
 
         d.setNameOfOrganization("Unemployed");
         d.setRouteName("Undefined");

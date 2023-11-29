@@ -1,12 +1,14 @@
 package org.onpu.controllers;
 
+import org.onpu.entities.Driver;
 import org.onpu.entities.Transport;
 import org.onpu.serialization.FileSerialization;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public final class TransportController implements FileSerialization {
-    private final Set<Transport> transports;
+    private Set<Transport> transports;
 
     public TransportController() {
         transports = Objects.requireNonNullElseGet(
@@ -67,6 +69,12 @@ public final class TransportController implements FileSerialization {
             throw new NullPointerException("Transport was not found");
         }
         t.setDriver(null);
+
+        Map<String, Transport> transportMap = transports.stream()
+                .collect(Collectors.toMap(Transport::getId, transport -> transport));
+        transportMap.remove(t.getId());
+        transports = new HashSet<>(transportMap.values());
+
         transports.remove(t);
         updateSerializedFile();
     }
